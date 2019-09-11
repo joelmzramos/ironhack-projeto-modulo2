@@ -5,6 +5,6 @@ const {
 
 const routes = express();
 
-routes.get('/', authRoutes);
+routes.get('/signup', authRoutes);
 
 module.exports = routes;
