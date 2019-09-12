@@ -11,11 +11,13 @@ app.set('views', `${__dirname}'/views'`);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const routes = require('./routes/public/index');
+const index = require('./routes/public/index');
 const authRoutes = require('./routes/public/auth-routes');
+const privateRoutes = require('./routes/private/private-routes');
 
-app.use('/', routes);
+app.use('/', index);
 app.use('/', authRoutes);
+app.use('/', privateRoutes);
 
 // hbs.registerPartials(`${__dirname}/views/partials`);
 

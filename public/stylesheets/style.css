@@ -1,0 +1,14 @@
+#login-container{
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  /* border: 2px solid red; */
+  flex-direction: column;
+}
+
+#login-container > form {
+  max-width: 50%;
+  width: 400px;
+  align-self: center;
+  /* border: 2px solid black; */
+} 
