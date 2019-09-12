@@ -1,7 +1,7 @@
 const express = require('express');
 const {
   index,
-} = require('../../controllers/index');
+} = require('../../controllers/index-controller');
 
 const routes = express();
 
