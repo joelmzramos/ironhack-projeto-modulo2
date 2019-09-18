@@ -1,5 +1,5 @@
 const express = require('express');
-const passport = require('passport');
+
 const {
   getLogin,
   postLogin,
@@ -11,11 +11,7 @@ const routes = express();
 
 routes.get('/login', getLogin);
 // routes.post('/login', postLogin);
-routes.post('/login',
-  passport.authenticate('local', { successRedirect: '/home',
-                                   failureRedirect: '/login',
-                                   failureFlash: false })
-);
+routes.post('/login', postLogin);
 routes.get('/signup', getSignup);
 routes.post('/signup', postSignup);
 

@@ -32,18 +32,20 @@ app.use(session({
   secret: 'our-passport-local-strategy-app',
   resave: true,
   saveUninitialized: true,
-  cookie: { maxAge: 60000000 },
+  cookie: { maxAge: 30 * 60000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 60 * 3, // 3 min
+    ttl: 60 * 1, // 3 min
   }),
 }));
 
 passport.serializeUser((user, cb) => {
+  console.log('User +' + user);
   cb(null, user._id);
 });
 
 passport.deserializeUser((id, cb) => {
+  console.log('Id +' + id);
   Users.findById(id, (err, user) => {
     if (err) { return cb(err); }
     cb(null, user);
