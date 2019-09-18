@@ -1,16 +1,51 @@
-<div>
-  <div class="card border-info mb-3" style="max-width: 18rem;">
-    <a href="/newservice"><div class="card-header">Cadastrar Novo Serviço</div></a>
-    <div class="card-body text-info">
-      <h5 class="card-title"></h5>
-      <p class="card-text"></p>
+<section id="home-page">
+  <div id="home-container">
+    <nav id="index-navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        {{!-- <a id="logo-name"class="navbar-brand" href="/">
+        <h1>ac<img id="logo-img" src="https://www.officetooltips.com/images/tips/412_2016/1.png" class="" alt="...">mpanhe aqui</h1>
+      </a> --}}
+        <a id="logo-name" class="navbar-brand" href="/">
+          <h1><img id="logo-img" src="https://www.officetooltips.com/images/tips/412_2016/1.png" class=""
+              alt="...">acompanhe aqui</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a id="login-button" class="btn btn-primary" href="" role="button">Meu cadastro</a>
+            </li>
+            <li class="nav-item">
+              <a id="sair-button" class="btn btn-primary" href="/" role="button">Sair</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div>
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+      <a href="/newservice">
+        <div class="card-header">Cadastrar Novo Serviço</div>
+      </a>
+      <div class="card-body text-info">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div>
+      <div class="card border-info mb-3" style="max-width: 18rem;">
+        <a href="/detail/1">
+          <div class="card-header">Juliano de Almeida</div>
+        </a>
+        <div class="card-body text-info">
+          <h5 class="card-title">Revisão Completa</h5>
+          <p class="card-text">O cliente pediu urgência no serviço.</p>
+        </div>
+      </div>
     </div>
   </div>
-<div>
-  <div class="card border-info mb-3" style="max-width: 18rem;">
-    <a href="/detail/1"><div class="card-header">Juliano de Almeida</div></a>
-    <div class="card-body text-info">
-      <h5 class="card-title">Revisão Completa</h5>
-      <p class="card-text">O cliente pediu urgência no serviço.</p>
-    </div>
-  </div>
+</section>

@@ -1,3 +1,146 @@
-<a href="/login">
-<h1>Estou na LandingPage. Quero fazer login</h1>
-</a>
+{{!-- ===================================NAVBAR=========================================== --}}
+{{!-- <section id="section0"> --}}
+<nav id="index-navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a id="logo-name" class="navbar-brand" href="/">
+      <h1><img id="logo-img" src="../images/flow.jpg" class=""
+          alt="..."> acompanhe aqui</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          {{!-- <a class="nav-link" href="#">Login</a> --}}
+          <a id="signup-button" class="btn btn-primary" href="/signup" role="button">Cadastre-se</a>
+        </li>
+        <li class="nav-item">
+          <a id="login-button" class="btn btn-primary" href="/login" role="button">Entrar</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{{!-- </section> --}}
+
+
+{{!-- ===================================SECTION1 (FOTO)=========================================== --}}
+<section id="section1">
+
+  <div class="card bg-dark text-white">
+    <img id="big-picture" src="../images/services.jpg" class="card-img" alt="...">
+    <div id="big-picture-text" class="card-img-overlay">
+      <h5 class="card-title">Serviços mais eficientes</h5>
+      {{!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+        This content is a little bit longer.</p>
+      <p class="card-text">Last updated 3 mins ago</p> --}}
+    </div>
+  </div>
+
+</section>
+
+{{!-- ===================================SECTION2 (ABOUT US)=========================================== --}}
+<section id="section2">
+  <div id="section2-container">
+    <div id="about">
+      <h2>A empresa</h2>
+      <h4>A Acompanhe Aqui surgiu com o objetivo de oferecer a prestadores de serviços mais eficiência às suas atividades e a possibilidade de manter os seus clientes
+        informados sobre as etapas de execução dos serviços.</h4>
+    </div>
+
+    <div id="about-cards">
+
+      <div class="card-deck">
+        <div class="card">
+          <img src="../images/serviço1.jpg" class="card-img-top" alt="...">
+          <div class="about-card-text card-body">
+            <h5 class="card-title">Monitoramento</h5>
+            <p class="card-text">Atualize o seu cliente sobre cada etapa de execução dos serviços contratados.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/serviço3.jpg" class="card-img-top" alt="...">
+          <div class="about-card-text card-body">
+            <h5 class="card-title">Banco de dados</h5>
+            <p class="card-text">Mantenha o cadastro de todos seus clientes e serviços, de maneira simplificada.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/serviço2.jpg" class="card-img-top" alt="...">
+          <div class="about-card-text card-body">
+            <h5 class="card-title">Eficiência</h5>
+            <p class="card-text">Aumente a produtividade do seu negócio com a gestão eficiente do tempo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{!-- ===================================SECTION3 (OUR SERVICES)=========================================== --}}
+<section id="section3">
+  <div id="section3-container">
+    <div id="vantagens">
+      <h2>Vantagens</h2>
+      <h4>Conheça os enefícios de usar nossa plataforma digital.</h4>
+    </div>
+
+    <div id="vantagens-cards">
+
+      <div class="card-deck">
+        <div class="vantagens-card card">
+          <img src="../images/devices.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Simples</h3>
+          </div>
+        </div>
+        <div class="vantagens-card card">
+          <img src="../images/devices.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Simples</h3>
+          </div>
+        </div>
+        <div class="vantagens-card card">
+          <img src="../images/devices.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Simples</h3>
+          </div>
+        </div>
+        <div class="vantagens-card card">
+          <img src="../images/devices.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Simples</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{{!-- ===================================SECTION4 (CONTACT US)=========================================== --}}
+
+
+<section id="section2">
+  <div id="section2-container">
+    <div id="about">
+      <h6>Obtenha o aplicativo</h6>
+      
+    </div>
+
+    <div id="about-cards">
+
+      <div class="card-deck">
+        <div class="card">
+          <img src="../images/apple.png" class="card-img-top" alt="...">
+        </div>
+        <div class="card">
+          <img src="../images/google.png" class="card-img-top" alt="...">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

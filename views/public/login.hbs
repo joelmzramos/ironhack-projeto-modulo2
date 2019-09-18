@@ -1,21 +1,55 @@
-<div id="login-container">
-  <form action="/login" method="POST">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
+<section id="login-page">
+  <div id="login-container">
+    <nav id="index-navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        {{!-- <a id="logo-name"class="navbar-brand" href="/">
+        <h1>ac<img id="logo-img" src="https://www.officetooltips.com/images/tips/412_2016/1.png" class="" alt="...">mpanhe aqui</h1>
+      </a> --}}
+        <a id="logo-name" class="navbar-brand" href="/">
+          <h1><img id="logo-img" src="https://www.officetooltips.com/images/tips/412_2016/1.png" class=""
+              alt="...">acompanhe aqui</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a id="signup-button" class="btn btn-primary" href="/signup" role="button">Cadastre-se</a>
+            </li>
+            <li class="nav-item">
+              <a id="login-button" class="btn btn-primary" href="/" role="button">Página inicial</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="login-form">
+
+      <form action="/login" method="POST">
+      <h2>Entrar</h2>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Endereço de e-mail</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Senha</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+        </div>
+
+        <div id="form-button">
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </div>
+        {{!-- 
     <a href="/signup">
-      <button type="button" class="btn btn-link">Primeiro acesso</button>
-    </a>
-  </form>
-</div>
+      <button type="button" class="btn btn-link">Cadastre-se</button>
+    </a> --}}
+
+      </form>
+
+
+    </div>
+
+  </div>
+</section>

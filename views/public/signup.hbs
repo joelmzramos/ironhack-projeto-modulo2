@@ -1,2 +1,179 @@
+<section id="signup-container">
+  <div id="section1">
+  <nav id="index-navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      {{!-- <a id="logo-name"class="navbar-brand" href="/">
+        <h1>ac<img id="logo-img" src="https://www.officetooltips.com/images/tips/412_2016/1.png" class="" alt="...">mpanhe aqui</h1>
+      </a> --}}
 
-<h1>Estou na signup. Vou fazer um post para gravação dos dados.</h1>
+      <a id="logo-name" class="navbar-brand" href="/">
+        <h1><img id="logo-img" src="https://www.officetooltips.com/images/tips/412_2016/1.png" class=""
+            alt="...">acompanhe aqui</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a id="signup-button" class="btn btn-primary" href="/" role="button">Página inicial</a>
+          </li>
+          <li class="nav-item">
+            <a id="login-button" class="btn btn-primary" href="/login" role="button">Entrar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+  <div id="signup">
+    <form>
+      {{!-- =============================TIPO DE USUÁRIO=============================================== --}}
+      <h4>Tipo de usuário</h4>
+      <div id="check-button">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1"> Prestador de serviços</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <label class="form-check-label" for="inlineRadio2"> Consumidor</label>
+        </div>
+      </div>
+      <h4>Informações de acesso</h4>
+      <div class="form-group">
+        <label for="inputAddress">Usuário*</label>
+        <input type="text" class="form-control" id="Nome" placeholder="">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">E-mail*</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Senha*</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="">
+        </div>
+      </div>
+      {{!-- =============================INFORMAÇÕES DE ACESSO=============================================== --}}
+      <h4>Dados cadastrais</h4>
+      <div class="form-group">
+        <label for="inputAddress">Nome*</label>
+        <input type="text" class="form-control" id="Nome" placeholder="">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">CPF*</label>
+          <input type="email" class="form-control" id="cpf" placeholder="___.___.___-__">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Data de nascimento</label>
+          <input type="password" class="form-control" id="cnpj" placeholder="__/__/____">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">CNPJ*</label>
+          <input type="email" class="form-control" id="cpf" placeholder="__.___.___/____-__">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Ramo de atuação*</label>
+
+          <select id="inputState" class="form-control">
+            <option>Assistência técnica</option>
+            <option>Autos</option>
+            <option>Design e tecnologia</option>
+            <option>Gráfica e papelaria</option>
+            <option>Moda e beleza</option>
+            <option>Reformas</option>
+            <option>Serviços domésticos</option>
+            <option>Outros</option>
+          </select>
+        </div>
+      </div>
+      {{!-- =============================CONTATO=============================================== --}}
+      <h4>Contato</h4>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Número do celular*</label>
+          <input type="password" class="form-control" id="celular" placeholder="">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Número do telefone</label>
+          <input type="email" class="form-control" id="telefone" placeholder="">
+        </div>
+      </div>
+      {{!-- =============================ENDEREÇO=============================================== --}}
+      <h4>Endereço</h4>
+      <div class="form-group">
+        <label for="inputAddress2">Endereço</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Número</label>
+          <input type="email" class="form-control" id="endereço" placeholder="">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Complemento</label>
+          <input type="password" class="form-control" id="cnpj" placeholder="">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">Cidade</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Estado</label>
+          <select id="inputState" class="form-control">
+            <option>Acre (AC) </option>
+            <option>Alagoas (AL)</option>
+            <option>Amapá (AP)</option>
+            <option>Amazonas (AM)</option>
+            <option>Bahia (BA)</option>
+            <option>Ceará (CE)</option>
+            <option>Distrito Federal (DF)</option>
+            <option>Espírito Santo (ES)</option>
+            <option>Goiás (GO)</option>
+            <option>Maranhão (MA)</option>
+            <option>Mato Grosso (MT)</option>
+            <option>Mato Grosso do Sul (MS)</option>
+            <option>Minas Gerais (MG)</option>
+            <option>Pará (PA)</option>
+            <option>Paraíba (PB)</option>
+            <option>Paraná (PR)</option>
+            <option>Pernambuco (PE)</option>
+            <option>Piauí (PI)</option>
+            <option>Rio de Janeiro (RJ)</option>
+            <option>Rio Grande do Norte (RN)</option>
+            <option>Rio Grande do Sul (RS)</option>
+            <option>Rondônia (RO)</option>
+            <option>Roraima (RR)</option>
+            <option>Santa Catarina (SC)</option>
+            <option>São Paulo (SP)</option>
+            <option>Sergipe (SE)</option>
+            <option>Tocantins (TO)</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Cep</label>
+          <input type="text" class="form-control" id="inputZip" placeholder="_____-___" maxlength="9">
+        </div>
+      </div>
+      {{!-- =============================PROFILE PICTURE=============================================== --}}
+      <h4>Imagem de perfil</h4>
+      <div class="form-group">
+        <label for="exampleFormControlFile1"></label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      {{!-- =============================SUBMIT BUTTON=============================================== --}}
+      <div id="form-button">
+        <button type="submit" class="btn btn-primary">Fazer cadastro</button>
+      </div>
+
+
+    </form>
+  </div>
+</section>
