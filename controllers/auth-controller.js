@@ -1,10 +1,14 @@
+const passport = require('passport');
+
 const getLogin = (req, res) => {
   res.render('public/login');
 };
 
-const postLogin = (req, res) => {
-  res.redirect('/home');
-};
+const postLogin = passport.authenticate('local', {
+  successRedirect: '/home',
+  failureRedirect: '/login',
+  failureFlash: false,
+});
 
 const getSignup = (req, res) => {
   res.render('public/signup');
