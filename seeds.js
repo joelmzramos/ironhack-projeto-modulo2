@@ -63,16 +63,7 @@ mongoose.connect('mongodb://localhost/project-module-2', { useNewUrlParser: true
     console.error('Error connecting to mongo', err);
   });
 
-// Users.insertMany(data)
-//   .then((celebritys) => {
-//     console.log(celebritys);
-//     mongoose.disconnect();
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
-Users.deleteMany()
+Users.insertMany(data)
   .then((celebritys) => {
     console.log(celebritys);
     mongoose.disconnect();
@@ -80,3 +71,12 @@ Users.deleteMany()
   .catch((err) => {
     console.log(err);
   });
+
+// Users.deleteMany()
+//   .then((celebritys) => {
+//     console.log(celebritys);
+//     mongoose.disconnect();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });

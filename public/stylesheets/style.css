@@ -1,14 +1,417 @@
+/* * {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+} */
+
+html, body {
+  width: 100%;
+}
+
+html {
+  font-size: 20px;
+}
+
+h1 { font-family: ‘Merriweather’, Georgia, serif; }
+
+#index-page {
+  height: 100%;
+}
+
+/* ============================NAVBAR=============================== */
+
+.navbar {
+  display: flex !important;
+  justify-content: space-between;
+  padding: 1% 10%;
+}
+
+#logo-name {
+  height: 60px;
+}
+
+nav h3 {
+  font-style: italic;
+  font-weight: bold;
+  color: #3a9ecb;
+/* text-transform: capitalize; */
+}
+
+/* #logo-img {
+  height: 60px;
+  padding: 5px;
+  width: auto;
+} */
+
+/* ============================SECTION 1 (FOTO)=============================== */
+
+#section1 {
+  background-color: red;
+  /* opacity: 0.6; */
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; IE */
+} 
+
+#big-picture { 
+  filter: brightness(50%);
+  object-fit: cover;
+  height: 600px;
+}
+
+#big-picture-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 1rem; 
+}
+
+/* ============================SECTION 2 (O APLICATIVO)=============================== */
+
+#section2 {
+  background-color: #3a9ecb;
+  color: #FFFFFF;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+#section2-container {
+  padding: 128px 20%;
+  text-align: center;
+  /* margin: 10px 0px 45px; */
+ }
+ 
+#section2-container h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2rem;
+  /* margin: 50px 0px 10px; */
+  /* text-transform: uppercase; */
+}
+
+#section2-container hr {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 32px;
+  background-color: #FFFFFF;
+  height: 2px;
+  width: 4rem;
+  margin: 24px auto;
+}
+
+#section2 p {
+  margin: 0px 0px 24px;
+}
+  
+
+/* ============================SECTION 3 (BENEFÍCIOS)=============================== */
+
+#section3 {
+  background-color: #FFFFFF;
+  color: #215259;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+#section3 p {
+  color: #6C757D;
+}
+  
+#section3-container {
+  padding: 128px 5% 113px;
+  text-align: center;
+}
+
+#beneficios p {
+  margin-bottom: 40px;
+}
+
+.vantagens-card {
+  border: none;
+  align-items: center;
+}
+
+.vantagens-card img {
+  max-width: 250px;
+  height: auto;
+}
+
+.vantagens-card h3 {
+  margin-top: -15px;
+}   
+
+#section3-container h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2rem;
+  margin-top: 0px;
+  /* text-transform: uppercase; */
+}
+  
+#section3-container hr {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 32px;
+  background-color: #3a9ecb;
+  height: 2px;
+  width: 4rem;
+  margin: 24px auto;
+}
+
+/* ============================SECTION 4 (PICTURES)=============================== */
+#section4 {
+  background-color: #343A40;
+  border: none;
+  margin: none;
+  filter: brightness(95%);
+}
+
+#section4 .card {
+  margin: none;
+  border: none;
+  padding: none;
+}
+
+/* ============================SECTION 5 (CADASTRE-SE)=============================== */
+
+#section5 {
+  background-color: #343A40;
+  color: #FFFFFF;
+  font-size: 1rem;
+  justify-content: center;
+}
+  
+#section5-container {
+  padding: 128px 20%;
+  text-align: center;
+}
+   
+#section5-container h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2rem;
+  padding-bottom: 24px;
+}
+  
+/* ============================SECTION 6=============================== */
+
+#section6 {
+  background-color: #FFFFFF;
+  color: #215259;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+#section6-container {
+  padding: 128px 5% 63px;
+  text-align: center;
+}
+
+#section6 p {
+  padding: 0px 0px 30px;
+  text-align: center;
+}
+
+#atendimento p {
+  color: #6C757D;
+}
+ 
+#contatos {
+  display: flex;
+  justify-content: center;
+}
+
+.contatos-card {
+  align-items: center;
+  border: none;
+  padding: 0 20px;
+  margin-bottom: 0px;
+}
+
+#section6 img {
+  width: 100px;
+  height: auto;
+  text-align: center;
+}
+
+#section6-container h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2rem;
+  margin-top: 0px;
+}
+    
+#section6-container hr {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 32px;
+  background-color: #3a9ecb;
+  height: 2px;
+  width: 4rem;
+  margin: 24px auto;
+}
+
+#e-mail {
+  color: #3a9ecb;
+}
+
+/* ============================SIGNUP PAGE=============================== */
+  
+#signup-button, #login-button, #sair-button, #signup-button2 #signup-button3 {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 18px;
+    /* margin: 10px 0px 45px; */
+}
+
+#login-button {
+  background-color: rgba(12, 8, 77, 0.9);
+  color: #FFFFFF;
+  border: 1px solid gba(10, 7, 66, 0.9);
+  
+}
+
+#signup-button {
+  background-color: #3a9ecb;
+  color: #FFFFFF;
+  border: 1px solid #3a9ecb;
+}
+
+#signup-button2, #signup-button3 {
+  padding: 20px 36px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+#signup-button2 {
+  background-color: #FFFFFF;
+  color:#215259;
+  border: 1px solid #FFFFFF;
+  /* margin-left: 10px; */
+}
+
+#signup-button3 {
+  background-color: #FFFFFF;
+  color:#215259;
+  border: 1px solid #FFFFFF;
+  /* margin-left: 10px; */
+ }
+
+#sair-button {
+  background-color:rgb(212, 51, 51);
+  color:white;
+  border: 1px solid rgb(212, 51, 51);
+  margin-left: 10px;
+}
+  
+#signup-container {
+  display: flex;
+  justify-content: center;
+  background-color: #3a9ecb;
+}
+  
+#signup {
+  /* border: 5px solid red; */
+  border-radius: 7px;
+  margin: 100px 20px 100px 20px;
+  padding: 40px;
+  justify-content: center;
+  max-width: 800px;
+  background-color: white !important;
+}
+  
+#signup h4 {
+  padding-top: 20px;
+  /* color: red !important; */
+  text-align: center !important;
+}
+  
+#check-button {
+  text-align: center !important;
+}
+  
+#form-button {
+  text-align: end;
+}
+
+/* ============================LOGIN PAGE=============================== */
+
+#login-page {
+  display: flex;
+  justify-content: center;
+  background-color: #3a9ecb;
+  height: 110vh;
+}
+  
+#login-form {
+  /* border: 5px solid red; */
+  border-radius: 7px;
+  margin: 100px 20px auto;
+  padding: 40px;
+  justify-content: center;
+  max-width: 800px;
+  background-color: white !important;
+}
+
+/* ============================HOME PAGE=============================== */
+
+#home-page {
+  height: 100vh;
+  background-color: #007bff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   
 #login-container{
   display: flex;
   justify-content: center;
   height: 600px;
-  /* border: 2px solid red; */
+  border: 2px solid red;
   flex-direction: column;
+  background-color:  #007bff;
 }
-
-#login-container > form {
+  
+#login-form {
   max-width: 50%;
   width: 400px;
   align-self: center;
-  /* border: 2px solid black; */
-} 
+  border: 2px solid black;
+  background-color: white;
+} */
+  
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+@media(max-width: 756px) {
+  html {
+    font-size: 20px;
+  }
+  #section1 .card-title {
+    font-size: 28px;
+  }
+}
+

@@ -1,3 +1,172 @@
-<a href="/login">
-<h1>Estou na LandingPage. Quero fazer login</h1>
-</a>
+{{!-- ===================================NAVBAR=========================================== --}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="nav-left">
+    {{!-- <a id="logo-name" class="navbar-brand" href="/">
+      <h3><img id="logo-img" src="../images/flow.jpg" class="" alt="..."> acompanhe aqui</h1>
+    </a> --}}
+    <a id="logo-name" class="navbar-brand" href="/">
+      <h3>acompanhe aqui</h1>
+    </a>
+  </div>
+  <div class="nav-right">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a id="signup-button" class="btn btn-primary" href="/signup">Cadastre-se<span
+            class="sr-only">(current)</span></a>
+        <a id="login-button" class="btn btn-primary" href="/login">Entrar</a>
+      </div>
+    </div>
+  </div>
+</nav>
+{{!-- </section> --}}
+
+
+{{!-- ===================================SECTION1 (FOTO)=========================================== --}}
+<section id="section1">
+  <div id="section1-container" class="card bg-dark text-white">
+    <img id="big-picture" src="../images/industry2.jpg" class="card-img" alt="...">
+    <div id="big-picture-text" class="card-img-overlay">
+      <h1 class="card-title">Acompanhamento de serviços</h1>
+      {{!-- <h1 class="card-title">Soluções inovadoras em<br>acompanhamento de serviços</h1> --}}
+      {{!-- <p class="card-text">A Acompanhe Aqui surgiu com o objetivo de oferecer soluções inovadoras para o setor de
+        serviços.</p> --}}
+      {{!-- <a id="login-button" class="btn btn-primary" href="/" role="button">Saiba mais</a> --}}
+
+    </div>
+  </div>
+
+</section>
+
+{{!-- ===================================SECTION2 (ABOUT US)=========================================== --}}
+<section id="section2">
+  <div id="section2-container">
+    <div id="about">
+      <h2>O aplicativo</h2>
+      <hr>
+      <p>O Acompanhe Aqui surgiu com o objetivo de oferecer a prestadores de serviços mais eficiência às suas atividades
+        e a possibilidade de manter os seus clientes
+        informados sobre todas as etapas de execução dos serviços.</p>
+      <a id="signup-button2" class="btn btn-primary" href="/signup" role="button">Cadastre-se</a>
+    </div>
+  </div>
+</section>
+
+{{!-- ===================================SECTION3 (OUR BENEFITS)=========================================== --}}
+<section id="section3">
+  <div id="section3-container">
+    <div id="beneficios">
+      <h2>Benefícios</h2>
+      <hr>
+      <p>Conheça as vantagens em utilizar a nossa plataforma digital.</p>
+    </div>
+
+    <div id="vantagens">
+
+      <div class="card-deck">
+        <div class="vantagens-card card">
+          <img src="../images/icone3.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Monitoramento</h3>
+            <p>Acompanhamento de cada<br>etapa dos serviços.</p>
+          </div>
+        </div>
+        <div class="vantagens-card card">
+          <img src="../images/icone1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Banco de Dados</h3>
+            <p>Cadastro completo de seus<br>clientes e serviços.</p>
+          </div>
+        </div>
+        <div class="vantagens-card card">
+          <img src="../images/icone2.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Responsivo</h3>
+            <p>Funciona em computadores,<br>tablets e smartphones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{{!-- ===================================SECTION4 (PICTURES)=========================================== --}}
+
+
+<section id="section4">
+  <div id="section4-container">
+    <div id="pictures-cards">
+      <div class="card-group">
+        <div class="card">
+          <img src="../images/projeto2.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card">
+          <img src="../images/projeto5.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card">
+          <img src="../images/projeto3.jpg" class="card-img-top" alt="...">
+        </div>
+      </div>
+      <div class="card-group">
+        <div class="card">
+          <img src="../images/projeto4.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card">
+          <img src="../images/projeto6.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card">
+          <img src="../images/projeto1.jpg" class="card-img-top" alt="...">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{!-- ===================================SECTION5 ()=========================================== --}}
+<section id="section5">
+  <div id="section5-container">
+    <div id="banner">
+      <h2>Cadastre-se agora!</h2>
+      <a id="signup-button3" class="btn btn-primary" href="/signup" role="button">Cadastre-se</a>
+    </div>
+  </div>
+</section>
+
+
+{{!-- ===================================SECTION6 (CONTACT)=========================================== --}}
+
+
+<section id="section6">
+  <div id="section6-container">
+    <div id="atendimento">
+      <h2>Atendimento</h2>
+      <hr>
+      <p>Quer saber mais? Contate-nos por meio dos nossos canais de atendimento!</p>
+    </div>
+
+    <div id="contatos">
+
+      <div class="card-deck">
+        <div class="contatos-card card">
+          <img src="../images/telefone.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p>0800-171-1717</p>
+          </div>
+        </div>
+        <div class="contatos-card card">
+          <img src="../images/email.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p id="e-mail">acompanhe@aqui.com.br</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
