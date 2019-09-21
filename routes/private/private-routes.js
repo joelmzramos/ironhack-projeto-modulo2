@@ -1,6 +1,7 @@
 const express = require("express");
 const {
   home,
+  customer,
   detail,
   newService,
   createService,
@@ -18,6 +19,7 @@ const checkRoles = role => (req, res, next) => {
 const checkSp = checkRoles('service provider');
 
 routes.get('/home', checkSp, home);
+routes.get('/customer', checkSp, customer);
 routes.get('/detail/:serviceId', checkSp, detail);
 routes.get('/newservice', checkSp, newService);
 routes.post('/createservice', checkSp, createService);
