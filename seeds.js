@@ -10,7 +10,7 @@ const hash = bcrypt.hashSync(password, salt);
 
 const data = [
   {
-    user: 'JRAMOS',
+    username: 'JRAMOS',
     password: hash,
     role: 'service provider',
     name: 'Joel Ramos',
@@ -63,7 +63,16 @@ mongoose.connect('mongodb://localhost/project-module-2', { useNewUrlParser: true
     console.error('Error connecting to mongo', err);
   });
 
-Users.insertMany(data)
+// Users.insertMany(data)
+//   .then((celebritys) => {
+//     console.log(celebritys);
+//     mongoose.disconnect();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+Users.deleteMany()
   .then((celebritys) => {
     console.log(celebritys);
     mongoose.disconnect();
@@ -72,11 +81,4 @@ Users.insertMany(data)
     console.log(err);
   });
 
-// Users.deleteMany()
-//   .then((celebritys) => {
-//     console.log(celebritys);
-//     mongoose.disconnect();
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+// console.log(Users.find());
