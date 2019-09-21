@@ -4,14 +4,14 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
   // required fields for every user:
-  username: { type: String, required: true },
+  username: { type: String },
   password: { type: String, required: true },
   role: { type: String, enum: ['customer', 'service provider'], required: true },
-  name: { type: String, required: true },
-  phoneNumber: { type: Number, required: true },
-  cellPhone: { type: Number, required: true },
-  email: { type: String, required: true },
-  cpf: { type: Number, required: true },
+  name: { type: String },
+  phoneNumber: { type: Number },
+  cellPhone: { type: Number },
+  email: { type: String },
+  cpf: { type: Number },
 
   // optional fields for every user:
   profilePicture: { type: String },

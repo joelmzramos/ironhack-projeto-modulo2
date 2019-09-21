@@ -5,8 +5,8 @@
       <h3><img id="logo-img" src="../images/flow.jpg" class="" alt="..."> acompanhe aqui</h1>
     </a> --}}
     <a id="logo-name" class="navbar-brand" href="/">
-    <h3>acompanhe aqui</h1>
-  </a>
+      <h3>acompanhe aqui</h1>
+    </a>
   </div>
   <div class="nav-right">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -24,14 +24,15 @@
 
 {{!-- </section> --}}
 <section id="signup-container">
-  <div id="signup">
     {{#unless modal}}
+  <div id="signup">
     <form action="/signup" method="POST">
       {{!-- =============================TIPO DE USUÁRIO=============================================== --}}
       <h4>Tipo de usuário</h4>
       <div id="check-button">
         <div class="form-check form-check-inline">
-          <input checked="checked" class="form-check-input" type="radio" name="role" id="inlineRadio1" value="service provider">
+          <input checked="checked" class="form-check-input" type="radio" name="role" id="inlineRadio1"
+            value="service provider">
           <label class="form-check-label" for="inlineRadio1"> Prestador de serviços</label>
         </div>
         <div class="form-check form-check-inline">
@@ -102,26 +103,26 @@
       <h4>Endereço</h4>
       <div class="form-group">
         <label for="inputAddress2">Endereço</label>
-        <input name="adress_street" type="text" class="form-control" id="inputAddress2" placeholder="">
+        <input name="street" type="text" class="form-control" id="inputAddress2" placeholder="">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputEmail4">Número</label>
-          <input name="adress_number" type="number" class="form-control" id="endereço" placeholder="">
+          <input name="number" type="number" class="form-control" id="endereço" placeholder="">
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">Complemento</label>
-          <input name="adress_complement" type="text" class="form-control" id="cnpj" placeholder="">
+          <input name="complement" type="text" class="form-control" id="cnpj" placeholder="">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputCity">Cidade</label>
-          <input name="adress_city" type="text" class="form-control" id="inputCity">
+          <input name="city" type="text" class="form-control" id="inputCity">
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">Estado</label>
-          <select name="adress_state" id="inputState" class="form-control">
+          <select name="state" id="inputState" class="form-control">
             <option>Acre (AC) </option>
             <option>Alagoas (AL)</option>
             <option>Amapá (AP)</option>
@@ -153,7 +154,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="inputZip">Cep</label>
-          <input name="adress_postalCode" type="text" class="form-control" id="inputZip" placeholder="_____-___" maxlength="9">
+          <input name="postalCode" type="text" class="form-control" id="inputZip" placeholder="_____-___" maxlength="9">
         </div>
       </div>
       {{!-- =============================PROFILE PICTURE=============================================== --}}
@@ -163,13 +164,17 @@
         <input name="profilePicture" type="file" class="form-control-file" id="exampleFormControlFile1">
       </div>
       {{!-- =============================SUBMIT BUTTON=============================================== --}}
-        <div id="form-button">
-          <button type="submit" class="btn btn-primary">Fazer cadastro</button>
-        </div>
+      <div id="form-button">
+        <button type="submit" class="btn btn-primary">Fazer cadastro</button>
+      </div>
     </form>
-    {{else}}  
-        <p>Cadastro Realizado com sucesso!!!</p>
-        <a href="/login"><p>Ir para o Login.</p></a>
-    {{/unless}}  
   </div>
+    {{else}}
+    <div id="success-message">
+      <p>Cadastro realizado com sucesso!!!</p>
+      <a href="/login">
+        <p>Entre na sua conta.</p>
+      </a>
+    </div>
+    {{/unless}}
 </section>

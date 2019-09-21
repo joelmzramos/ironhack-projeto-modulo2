@@ -32,10 +32,10 @@ const data = [
     coreBusiness: 'Mecânica',
   },
   {
-    user: 'MBRANDAO',
+    username: 'MBRANDAO',
     password: hash,
     role: 'service provider',
-    name: 'Marcos Brandão',
+    name: 'Marcus Brandão',
     phoneNumber: 1149442222,
     cellPhone: 11999440033,
     email: 'testeprojeto@ironhack.com',
@@ -63,16 +63,7 @@ mongoose.connect('mongodb://localhost/project-module-2', { useNewUrlParser: true
     console.error('Error connecting to mongo', err);
   });
 
-// Users.insertMany(data)
-//   .then((celebritys) => {
-//     console.log(celebritys);
-//     mongoose.disconnect();
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
-Users.deleteMany()
+Users.insertMany(data)
   .then((celebritys) => {
     console.log(celebritys);
     mongoose.disconnect();
@@ -80,5 +71,14 @@ Users.deleteMany()
   .catch((err) => {
     console.log(err);
   });
+
+// Users.deleteMany()
+//   .then((celebritys) => {
+//     console.log(celebritys);
+//     mongoose.disconnect();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 // console.log(Users.find());

@@ -333,6 +333,16 @@ nav h3 {
   text-align: end;
 }
 
+#success-message {
+  border-radius: 7px;
+  margin: 100px 20px auto;
+  padding: 40px;
+  justify-content: center;
+  max-width: 800px;
+  background-color: white !important;
+}
+
+
 /* ============================LOGIN PAGE=============================== */
 
 #login-page {
@@ -387,6 +397,8 @@ nav h3 {
   align-items: center;
   /* justify-content: space-between;  */
   max-width: 100vw;
+}
+
 .display-none {
   display: none;
 }
