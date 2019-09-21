@@ -305,6 +305,7 @@ nav h3 {
   display: flex;
   justify-content: center;
   background-color: #3a9ecb;
+  min-height: 100vh;  
 }
   
 #signup {
@@ -315,6 +316,7 @@ nav h3 {
   justify-content: center;
   max-width: 800px;
   background-color: white !important;
+
 }
   
 #signup h4 {
@@ -385,6 +387,8 @@ nav h3 {
   align-items: center;
   /* justify-content: space-between;  */
   max-width: 100vw;
+.display-none {
+  display: none;
 }
 
 .search-label {

@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
   // required fields for every user:
-  user: { type: String, required: true },
+  username: { type: String, required: true },
   password: { type: String, required: true },
   role: { type: String, enum: ['customer', 'service provider'], required: true },
   name: { type: String, required: true },

@@ -1,5 +1,4 @@
 {{!-- ===================================NAVBAR=========================================== --}}
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="nav-left">
     {{!-- <a id="logo-name" class="navbar-brand" href="/">
@@ -22,63 +21,60 @@
     </div>
   </div>
 </nav>
+
 {{!-- </section> --}}
 <section id="signup-container">
-
   <div id="signup">
-    <form>
+    {{#unless modal}}
+    <form action="/signup" method="POST">
       {{!-- =============================TIPO DE USUÁRIO=============================================== --}}
       <h4>Tipo de usuário</h4>
       <div id="check-button">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <input checked="checked" class="form-check-input" type="radio" name="role" id="inlineRadio1" value="service provider">
           <label class="form-check-label" for="inlineRadio1"> Prestador de serviços</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="customer">
           <label class="form-check-label" for="inlineRadio2"> Cliente</label>
         </div>
       </div>
       <h4>Informações de acesso</h4>
       <div class="form-group">
         <label for="inputAddress">Usuário*</label>
-        <input type="text" class="form-control" id="Nome" placeholder="">
+        <input name="username" type="text" class="form-control" id="Nome" placeholder="">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputEmail4">E-mail*</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="">
+          <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="">
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">Senha*</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="">
+          <input name="password" type="password" class="form-control" id="inputPassword4" placeholder="">
         </div>
       </div>
       {{!-- =============================INFORMAÇÕES DE ACESSO=============================================== --}}
       <h4>Dados cadastrais</h4>
       <div class="form-group">
         <label for="inputAddress">Nome*</label>
-        <input type="text" class="form-control" id="Nome" placeholder="">
+        <input name="name" type="text" class="form-control" id="Nome" placeholder="">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputEmail4">CPF*</label>
-          <input type="email" class="form-control" id="cpf" placeholder="___.___.___-__">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputPassword4">Data de nascimento</label>
-          <input type="password" class="form-control" id="cnpj" placeholder="__/__/____">
+          <input name="cpf" type="number" class="form-control" id="cpf" placeholder="___.___.___-__">
         </div>
       </div>
-      <div class="form-row">
+      <div class="form-row" id="data-sp">
         <div class="form-group col-md-6">
           <label for="inputEmail4">CNPJ*</label>
-          <input type="email" class="form-control" id="cpf" placeholder="__.___.___/____-__">
+          <input name="cnpj" type="number" class="form-control" id="cpf" placeholder="__.___.___/____-__">
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">Ramo de atuação*</label>
 
-          <select id="inputState" class="form-control">
+          <select name="coreBusiness" id="inputState" class="form-control">
             <option>Assistência técnica</option>
             <option>Autos</option>
             <option>Design e tecnologia</option>
@@ -95,37 +91,37 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputPassword4">Número do celular*</label>
-          <input type="password" class="form-control" id="celular" placeholder="">
+          <input name="cellPhone" type="number" class="form-control" id="celular" placeholder="">
         </div>
         <div class="form-group col-md-6">
           <label for="inputEmail4">Número do telefone</label>
-          <input type="email" class="form-control" id="telefone" placeholder="">
+          <input name="phoneNumber" type="number" class="form-control" id="telefone" placeholder="">
         </div>
       </div>
       {{!-- =============================ENDEREÇO=============================================== --}}
       <h4>Endereço</h4>
       <div class="form-group">
         <label for="inputAddress2">Endereço</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="">
+        <input name="adress_street" type="text" class="form-control" id="inputAddress2" placeholder="">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputEmail4">Número</label>
-          <input type="email" class="form-control" id="endereço" placeholder="">
+          <input name="adress_number" type="number" class="form-control" id="endereço" placeholder="">
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">Complemento</label>
-          <input type="password" class="form-control" id="cnpj" placeholder="">
+          <input name="adress_complement" type="text" class="form-control" id="cnpj" placeholder="">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputCity">Cidade</label>
-          <input type="text" class="form-control" id="inputCity">
+          <input name="adress_city" type="text" class="form-control" id="inputCity">
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">Estado</label>
-          <select id="inputState" class="form-control">
+          <select name="adress_state" id="inputState" class="form-control">
             <option>Acre (AC) </option>
             <option>Alagoas (AL)</option>
             <option>Amapá (AP)</option>
@@ -157,21 +153,23 @@
         </div>
         <div class="form-group col-md-2">
           <label for="inputZip">Cep</label>
-          <input type="text" class="form-control" id="inputZip" placeholder="_____-___" maxlength="9">
+          <input name="adress_postalCode" type="text" class="form-control" id="inputZip" placeholder="_____-___" maxlength="9">
         </div>
       </div>
       {{!-- =============================PROFILE PICTURE=============================================== --}}
       <h4>Imagem de perfil</h4>
       <div class="form-group">
         <label for="exampleFormControlFile1"></label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        <input name="profilePicture" type="file" class="form-control-file" id="exampleFormControlFile1">
       </div>
       {{!-- =============================SUBMIT BUTTON=============================================== --}}
-      <div id="form-button">
-        <button type="submit" class="btn btn-primary">Fazer cadastro</button>
-      </div>
-
-
+        <div id="form-button">
+          <button type="submit" class="btn btn-primary">Fazer cadastro</button>
+        </div>
     </form>
+    {{else}}  
+        <p>Cadastro Realizado com sucesso!!!</p>
+        <a href="/login"><p>Ir para o Login.</p></a>
+    {{/unless}}  
   </div>
 </section>
