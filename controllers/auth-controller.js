@@ -1,8 +1,6 @@
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-
 const Users = require('../models/Users');
-
 const saltRounds = 10;
 
 const getLogin = (req, res) => {
@@ -20,13 +18,9 @@ const getSignup = (req, res) => {
 };
 
 const postSignup = async (req, res) => {
-  //  Ajustar o formato do formulário para o model do Mongo.
-
-  // explicitar os campos do body
   const { username, password, role, name, phoneNumber, cellPhone, email, cpf, profilePicture, street, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
-
   const userData = {
-    username,
+    username, // same as "username = username"
     password,
     role,
     name,
@@ -55,16 +49,39 @@ const postSignup = async (req, res) => {
     }
   };
 
-  // const dataUser = Object.keys(req.body).reduce((result, element) => {
-  //   if (!element.match('_')) result[element] = req.body[element]
-  //   else {
-  //     const key = element.split(/_([^_]*)$/)
-  //     if (!result[key[0]]) result[key[0]] = {}
-  //     result[key[0]][key[1]] = req.body[element]
-  //   }
-  //   return result;
-  // }, {});
+  // =================================SIGNUP CONTROLS BELOW==========================================
 
+  if (username === "" || email === "" || password === "") {
+    console.log("empty username, e-mail or password");
+    res.render("public/message", { message: `Os campos "usuário", "e-mail" e "senha" são de preenchimento obrigatório. Tente novamente.` });
+  } else if (username.length > 15 || password.length > 15) {
+    console.log("username or password less than 15 characters");
+    res.render("public/message", { message: `Os campos "usuário" e "senha" devem ter no máximo 15 caracteres. Tente novamente.` });
+  }
+
+  Users.findOne({ username })
+    .then(user => {
+      if (user) {
+        res.render("public/message", { message: `O nome de "usuário" escolhido já está em uso. Tente outro.` });
+        return;
+      }
+    })
+    .catch(error => {
+      next(error)
+    })
+
+  Users.findOne({ email })
+    .then(user => {
+      if (user) {
+        res.render("public/message", { message: `O endereço de e-mail escolhido já está em uso. Tente outro.` });
+        return;
+      }
+    })
+    .catch(error => {
+      next(error)
+    })
+
+  // =================================SIGNUP CONTROLS ABOVE==========================================
 
   const salt = bcrypt.genSaltSync(saltRounds);
   const hash = bcrypt.hashSync(userData.password, salt);
@@ -74,14 +91,13 @@ const postSignup = async (req, res) => {
   const newUser = new Users(userData);
   console.log(newUser);
 
-  try {
-    await newUser.save();
-  } catch (error) {
-    console.log(error);
-  }
-  
+  newUser.save((err) => {
+    if (err) {
+      res.render("public/message", { message: "Ocorreu um erro no cadastro do usuário. Tente novamente." });
+    }
+  });
 
-  // ========================NODEMAILER CODE (ABAIXO)===============================
+  // ========================NODEMAILER CODE (BELOW)===============================
 
   const nodemailer = require('nodemailer');
   async function main() {
@@ -109,15 +125,28 @@ const postSignup = async (req, res) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   }
-// ===========================NODEMAILER CODE (ACIMA)==============================
+  // ===========================NODEMAILER CODE (ABOVE)==============================
+
   try {
     await main()
+    res.render('public/message', { modal: true });
   } catch (error) {
+
+    Users.findOne({ username })
+      .then(user => {
+        if (user) {
+          user.remove();
+          console.log("user deleted");
+          res.render("public/message", { message: "Ocorreu um erro no envio de e-mail para o usuário cadastrado. Verifique se o endereço inserido de e-mail está correto e tente novamente." });
+          return;
+        }
+      })
+      .catch(error => {
+        next(error)
+      })
     console.log(error);
   }
-
-  res.render('public/signup', { modal: true });
-
+  // res.render('public/succes-login-page');
 };
 
 module.exports = {
@@ -126,3 +155,4 @@ module.exports = {
   getSignup,
   postSignup,
 };
+

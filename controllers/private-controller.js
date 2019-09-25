@@ -1,10 +1,8 @@
 const home = (req, res) => {
-  
   res.render('private/home');
 };
 
-const customer = (req, res) => {
-  
+const customer = (req, res) => { 
   res.render('private/customer');
 };
 

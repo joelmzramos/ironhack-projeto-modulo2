@@ -44,15 +44,17 @@ nav h3 {
   width: auto;
 } */
 
+/* ===============================INDEX PAGE================================= */
+
 /* ============================SECTION 1 (FOTO)=============================== */
 
-#section1 {
-  background-color: red;
+/* #section1 { */
+
   /* opacity: 0.6; */
   /* -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   filter: gray; IE */
-} 
+/* }  */
 
 #big-picture { 
   filter: brightness(50%);
@@ -112,7 +114,6 @@ nav h3 {
   background-color: #FFFFFF;
   color: #215259;
   font-size: 1rem;
-  justify-content: center;
 }
 
 #section3 p {
@@ -120,17 +121,24 @@ nav h3 {
 }
   
 #section3-container {
-  padding: 128px 5% 113px;
+  padding: 100px 5% 85px;
   text-align: center;
 }
+
 
 #beneficios p {
   margin-bottom: 40px;
 }
 
+#vantagens {
+  display: flex;
+  justify-content: center;
+}
+
 .vantagens-card {
   border: none;
   align-items: center;
+  min-width: 400px;
 }
 
 .vantagens-card img {
@@ -252,9 +260,37 @@ nav h3 {
   color: #3a9ecb;
 }
 
+
+/* ===============================ABOUT================================= */
+
+
+#about-page {
+  display: flex;
+  justify-content: center;
+  background-color: #3a9ecb;
+  min-height: 100vh;
+}
+  
+#about {
+  border-radius: 7px;
+  margin: 100px 5vw;
+  padding: 40px;
+  justify-content: center;
+  max-width: 800px;
+  background-color: white !important;
+}
+
+#about h3 {
+  padding-bottom: 30px;
+}
+
+#signup-button3 {
+  text-align: end;
+}
+
 /* ============================SIGNUP PAGE=============================== */
   
-#signup-button, #login-button, #sair-button, #signup-button2 #signup-button3 {
+#signup-button, #login-button, #sair-button, #about-button, #signup-button2 {
   padding: 10px 20px;
   margin: 10px;
   font-size: 18px;
@@ -274,20 +310,20 @@ nav h3 {
   border: 1px solid #3a9ecb;
 }
 
-#signup-button2, #signup-button3 {
+#about-button, #signup-button2 {
   padding: 20px 36px;
   border-radius: 50px;
   text-transform: uppercase;
 }
 
-#signup-button2 {
+#about-button {
   background-color: #FFFFFF;
   color:#215259;
   border: 1px solid #FFFFFF;
   /* margin-left: 10px; */
 }
 
-#signup-button3 {
+#signup-button2 {
   background-color: #FFFFFF;
   color:#215259;
   border: 1px solid #FFFFFF;
@@ -333,15 +369,9 @@ nav h3 {
   text-align: end;
 }
 
-#success-message {
-  border-radius: 7px;
-  margin: 100px 20px auto;
-  padding: 40px;
-  justify-content: center;
-  max-width: 800px;
-  background-color: white !important;
+#signup-container span {
+  font-size: 0.8rem;
 }
-
 
 /* ============================LOGIN PAGE=============================== */
 
@@ -349,7 +379,8 @@ nav h3 {
   display: flex;
   justify-content: center;
   background-color: #3a9ecb;
-  height: calc(100vh - 90px);
+  /* height: calc(100vh - 70px); */
+  height: 100vh;
 }
   
 #login-form {
@@ -388,7 +419,6 @@ nav h3 {
   min-height: 100vh;
   min-width: 100vw;
   padding: 10px 10px;
-  /* margin: 0; */
   margin: 0; 
 }
 
@@ -443,12 +473,10 @@ background-color: rgb(223, 217, 217);
 #newservice, .service {
   text-align: center;
   font-size: 16px;
- 
 }
 
 #newservice h5, .service h5 {
   font-weight: bold;
- 
 }
 
 #plus-button {
@@ -466,13 +494,12 @@ background-color: rgb(223, 217, 217);
 
 #newservice, .service {
 margin: 20px 0px;
-
 }
 
 #newservice h6, .service h6 {
   margin: 20px 0px;
   color: #3a9ecb;
-  }
+}
 
 .customer-picture {
   justify-content: center;
@@ -496,8 +523,7 @@ margin: 20px 0px;
   align-items: center;
   background-color: rgb(0, 0, 58);
   min-width: 100vw;
-  padding: 60px 10px;
-  
+  padding: 60px 10px;  
 }
 
 .customer-profile {
@@ -548,49 +574,51 @@ margin: 20px 0px;
   height: 300px;
 }
 
+/* ===================================ERROR PAGE=========================================== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*   
-#login-container{
+#message-page {
   display: flex;
   justify-content: center;
-  height: 600px;
-  border: 2px solid red;
-  flex-direction: column;
-  background-color:  #007bff;
-}
-  
-#login-form {
-  max-width: 50%;
-  width: 400px;
-  align-self: center;
-  border: 2px solid black;
-  background-color: white;
-} */
-  
-.carousel-item {
+  background-color: #3a9ecb;
+  /* height: calc(100vh - 70px); */
   height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
+  
+#error-message {
+  /* border: 5px solid red; */
+  border-radius: 7px;
+  margin: 100px 20px auto;
+  padding: 40px;
+  justify-content: center;
+  max-width: 440px;
+  background-color: white !important;
+  /* line-height: 30px */
+}
+
+#error-message h2 {
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+/* #message {
+  color: red;
+  font-weight: bold;
+  text-align: left;
+} */
+
+#success-message {
+  border-radius: 7px;
+  margin: 100px 20px auto;
+  padding: 40px;
+  justify-content: center;
+  max-width: 800px;
+  background-color: white !important;
+}
+
+
+/* ===================================MEDIA QUERY=========================================== */
+
+
 
 
 @media(max-width: 756px) {
@@ -601,4 +629,29 @@ margin: 20px 0px;
     font-size: 28px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================APAGAR ABAIXO=================================== */
+
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* ===================================APAGAR ACIMA=================================== */
+
 

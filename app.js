@@ -78,11 +78,11 @@ app.set('views', `${__dirname}'/views'`);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const index = require('./routes/public/index');
+const publicRoutes = require('./routes/public/public-routes');
 const authRoutes = require('./routes/public/auth-routes');
 const privateRoutes = require('./routes/private/private-routes');
 
-app.use('/', index);
+app.use('/', publicRoutes);
 app.use('/', authRoutes);
 app.use('/', privateRoutes);
 

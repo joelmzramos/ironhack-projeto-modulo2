@@ -24,8 +24,7 @@
 
 {{!-- </section> --}}
 <section id="signup-container">
-    {{#unless modal}}
-  <div id="signup">
+    <div id="signup">
     <form action="/signup" method="POST">
       {{!-- =============================TIPO DE USUÁRIO=============================================== --}}
       <h4>Tipo de usuário</h4>
@@ -55,25 +54,26 @@
           <input name="password" type="password" class="form-control" id="inputPassword4" placeholder="">
         </div>
       </div>
+        <span>*Campos obrigatórios</span>
       {{!-- =============================INFORMAÇÕES DE ACESSO=============================================== --}}
       <h4>Dados cadastrais</h4>
       <div class="form-group">
-        <label for="inputAddress">Nome*</label>
+        <label for="inputAddress">Nome</label>
         <input name="name" type="text" class="form-control" id="Nome" placeholder="">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputEmail4">CPF*</label>
+          <label for="inputEmail4">CPF</label>
           <input name="cpf" type="number" class="form-control" id="cpf" placeholder="___.___.___-__">
         </div>
       </div>
       <div class="form-row" id="data-sp">
         <div class="form-group col-md-6">
-          <label for="inputEmail4">CNPJ*</label>
+          <label for="inputEmail4">CNPJ</label>
           <input name="cnpj" type="number" class="form-control" id="cpf" placeholder="__.___.___/____-__">
         </div>
         <div class="form-group col-md-6">
-          <label for="inputPassword4">Ramo de atuação*</label>
+          <label for="inputPassword4">Ramo de atuação</label>
 
           <select name="coreBusiness" id="inputState" class="form-control">
             <option>Assistência técnica</option>
@@ -91,11 +91,11 @@
       <h4>Contato</h4>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputPassword4">Número do celular*</label>
+          <label for="inputPassword4">DDD + Número do celular</label>
           <input name="cellPhone" type="number" class="form-control" id="celular" placeholder="">
         </div>
         <div class="form-group col-md-6">
-          <label for="inputEmail4">Número do telefone</label>
+          <label for="inputEmail4">DDD + Número do telefone</label>
           <input name="phoneNumber" type="number" class="form-control" id="telefone" placeholder="">
         </div>
       </div>
@@ -169,12 +169,4 @@
       </div>
     </form>
   </div>
-    {{else}}
-    <div id="success-message">
-      <p>Cadastro realizado com sucesso!!!</p>
-      <a href="/login">
-        <p>Entre na sua conta.</p>
-      </a>
-    </div>
-    {{/unless}}
 </section>
