@@ -16,7 +16,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a id="signup-button" class="btn btn-primary" href="/">Página inicial<span class="sr-only">(current)</span></a>
+        <a id="signup-button" class="btn btn-primary" href="/signup">Editar meu perfil</a>
+        <a id="login-button" class="btn btn-primary" href="/">Página inicial</a>
         <a id="sair-button" class="btn btn-primary" href="/">Sair</a>
       </div>
     </div>
@@ -24,142 +25,306 @@
 </nav>
 {{!-- </section> --}}
 
+
+
 <!-- ===================================HOME CONTAINER=========================================== -->
 
 <section id="home-container">
-  <!-- ===================================HOME 1=========================================== -->
-  <!-- <div class="container"> -->
-  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-  <div class="home-card card mb-3" style="max-width: 90vw;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="https://attorneysforfreedom.com/wp-content/uploads/2017/06/Holding-Drunk-Drivers-Accountable.jpg"
-          class="card-img" alt="...">
+
+  <div id="home-services">
+<h3>Minha área exclusiva</h3>
+
+    {{!-- =============================ENDEREÇO=============================================== --}}
+
+    <div id="home-search" class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputCity">Buscar cliente:</label>
+        <input name="city" type="text" class="form-control" id="inputCity" placeholder="Nome">
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h1>Mecânica dos Famosos</h1>
-          <h4>CNPJ: 00.000.000/0000-00</h4>
-          <a href="#" class="btn btn-primary">Editar perfil</a>
-        </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">Ordenar por:</label>
+        <select name="state" id="inputState" class="form-control">
+          <option>serviço (ordem alfabética) </option>
+          <option>data de início (mais antigos primeiro)</option>
+          <option>data de conclusão (mais próximos primeiro)</option>
+          <option>menor valor (mais baratos primeiro)</option>
+          <option>maior valor (mais caros primeiro)</option>
+        </select>
       </div>
     </div>
-  </div>
-  <!-- </div> -->
 
+    {{!-- </div> --}}
+
+    <div id="services" class="card-deck">
+      <div id="newservice">
+        <div class="card" style="width: 14rem;">
+          <!-- puxar a foto do comerciante, neste primeiro card -->
+          <img src="./images/serviceindustry.jpg" class="customer-picture card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Novo Serviço</h5>
+            <a id="plus-button" href="#" class="btn btn-primary">+</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Barrichello</h5>
+              <h6><strong>Início:</strong></h6>
+              <p class="card-text">20/09/2019</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://uploads.metropoles.com/wp-content/uploads/2018/11/19164206/Screenshot_3332.jpg"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Assunção</h5>
+              <h6><strong>Conclusão:</strong></h6>
+              <p class="card-text">10/10/2019</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://conteudo.imguol.com.br/blogs/28/files/2017/08/casao-corinthians.jpg"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Casagrande</h5>
+              <h6><strong>Menor valor:</strong></h6>
+              <p class="card-text">R$ 100,00</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">123456789012345</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">123456789012345</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Barrichello</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://uploads.metropoles.com/wp-content/uploads/2018/11/19164206/Screenshot_3332.jpg"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Assunção</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://conteudo.imguol.com.br/blogs/28/files/2017/08/casao-corinthians.jpg"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Casagrande</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Alinhamento</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">123456789012345</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">123456789012345</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Barrichello</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://uploads.metropoles.com/wp-content/uploads/2018/11/19164206/Screenshot_3332.jpg"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Assunção</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://conteudo.imguol.com.br/blogs/28/files/2017/08/casao-corinthians.jpg"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">Casagrande</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Alinhamento</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">123456789012345</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">123456789012345</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">123456789012345</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="service">
+        <a href="/about">
+          <div class="card" style="width: 14rem;">
+            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">123456789012345</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">Funilaria (retorno)</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
 </section>
 <!-- ===================================HOME 2=========================================== -->
-
-<section id="home-services">
-  <h2>Meus serviços</h2>
-  {{!-- <div class="search-container"> --}}
-  <div class="search-container form-group col-md-6">
-    <div>
-      <label class="search-label" for="inputPassword4">Filtrar por:</label>
-    </div>
-    <div>
-      <select id="inputState" class="form-control">
-        <option>sem orçamento</option>
-        <option>mais antigos</option>
-        <option>mais recentes</option>
-        <option>finalizados</option>
-        <option>outros</option>
-      </select>
-    </div>
-  </div>
-  {{!-- </div> --}}
-  <div id="services" class="card-deck">
-    <div id="newservice">
-      <div class="card" style="width: 14rem;">
-        <!-- puxar a foto do comerciante, neste primeiro card -->
-        <img src="./images/serviceindustry.jpg" class="customer-picture card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Novo Serviço</h5>
-          <a id="plus-button" href="#" class="btn btn-primary">+</a>
-        </div>
-      </div>
-    </div>
-    <div class="service">
-      <div class="card" style="width: 14rem;">
-        <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
-          class="customer-picture card-img-top" alt="...">
-        <div class="card-body">
-          <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
-
-          <h5 class="card-title">Barrichello</h5>
-          <h6><strong>Serviço:</strong></h6>
-          <p class="card-text">Funilaria (retorno)</p>
-          <a href="#" class="btn btn-primary">Acompanhe</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="service">
-      <div class="card" style="width: 14rem;">
-        <img src="https://uploads.metropoles.com/wp-content/uploads/2018/11/19164206/Screenshot_3332.jpg"
-          class="customer-picture card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Assunção</h5>
-          <h6><strong>Serviço:</strong></h6>
-          <p class="card-text">Funilaria</p>
-          <a href="#" class="btn btn-primary">Acompanhe</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="service">
-      <div class="card" style="width: 14rem;">
-        <img src="https://conteudo.imguol.com.br/blogs/28/files/2017/08/casao-corinthians.jpg"
-          class="customer-picture card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Casagrande</h5>
-          <h6><strong>Serviço:</strong></h6>
-          <p class="card-text">Alinhamento</p>
-          <a href="#" class="btn btn-primary">Acompanhe</a>
-        </div>
-      </div>
-    </div>
-    <div class="service">
-      <div class="card" style="width: 14rem;">
-        <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
-          class="customer-picture card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Rubens Barrichello</h5>
-          <h6><strong>Serviço:</strong></h6>
-          <p class="card-text">Funilaria (retorno)</p>
-          <a href="#" class="btn btn-primary">Acompanhe</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="service">
-      <div class="card" style="width: 14rem;">
-        <img src="https://uploads.metropoles.com/wp-content/uploads/2018/11/19164206/Screenshot_3332.jpg"
-          class="customer-picture card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Fábio Assunção</h5>
-          <h6><strong>Serviço:</strong></h6>
-          <p class="card-text">Funilaria</p>
-          <a href="#" class="btn btn-primary">Acompanhe</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="service">
-      <div class="card" style="width: 14rem;">
-        <img src="https://conteudo.imguol.com.br/blogs/28/files/2017/08/casao-corinthians.jpg"
-          class="customer-picture card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Walter Casagrande</h5>
-          <h6><strong>Serviço:</strong></h6>
-          <p class="card-text">Alinhamento</p>
-          <a href="#" class="btn btn-primary">Acompanhe</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
 
 
 

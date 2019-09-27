@@ -91,11 +91,11 @@ const postSignup = async (req, res) => {
   const newUser = new Users(userData);
   console.log(newUser);
 
-  newUser.save((err) => {
-    if (err) {
-      res.render("public/message", { message: "Ocorreu um erro no cadastro do usuário. Tente novamente." });
-    }
-  });
+  // newUser.save((err) => {
+  //   if (err) {
+  //     res.render("public/message", { message: "Ocorreu um erro no cadastro do usuário. Tente novamente." });
+  //   }
+  // });
 
   // ========================NODEMAILER CODE (BELOW)===============================
 
@@ -129,22 +129,28 @@ const postSignup = async (req, res) => {
 
   try {
     await main()
+    newUser.save((err) => {
+      if (err) {
+        res.render("public/message", { message: "Ocorreu um erro no cadastro do usuário. Tente novamente." });
+      }
+    });
     res.render('public/message', { modal: true });
   } catch (error) {
+    res.render("public/message", { message: "Ocorreu um erro no envio de e-mail para o usuário cadastrado. Verifique se o endereço inserido de e-mail está correto e tente novamente. Caso o erro persista, entre em contato com a Acompanhe Aqui." });
 
-    Users.findOne({ username })
-      .then(user => {
-        if (user) {
-          user.remove();
-          console.log("user deleted");
-          res.render("public/message", { message: "Ocorreu um erro no envio de e-mail para o usuário cadastrado. Verifique se o endereço inserido de e-mail está correto e tente novamente." });
-          return;
-        }
-      })
-      .catch(error => {
-        next(error)
-      })
-    console.log(error);
+    // Users.findOne({ _id: newUser._id })
+    //   .then(user => {
+    //     if (user) {
+    //       user.remove();
+    //       console.log("user deleted");
+    //       res.render("public/message", { message: "Ocorreu um erro no envio de e-mail para o usuário cadastrado. Verifique se o endereço inserido de e-mail está correto e tente novamente." });
+    //       return;
+    //     }
+    //   })
+    //   .catch(error => {
+    //     next(error)
+    //   })
+    // console.log(error);
   }
   // res.render('public/succes-login-page');
 };
