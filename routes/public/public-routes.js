@@ -6,11 +6,11 @@ const {
   // message
 } = require('../../controllers/public-controller');
 
-const routes = express();
+const router = express();
 
-routes.get('/', index);
-routes.get('/about', about);
-routes.get('/login', login);
-// routes.get('/message', message);
+router.get('/', index);
+router.get('/about', about);
+router.get('/login', login);
+// router.get('/message', message);
 
-module.exports = routes;
+module.exports = router;

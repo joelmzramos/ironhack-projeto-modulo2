@@ -5,13 +5,15 @@ const {
   postLogin,
   getSignup,
   postSignup,
+  getLogout,
 } = require('../../controllers/auth-controller');
 
-const routes = express();
+const router = express();
 
-routes.get('/login', getLogin);
-routes.post('/login', postLogin);
-routes.get('/signup', getSignup);
-routes.post('/signup', postSignup);
+router.get('/login', getLogin);
+router.post('/login', postLogin);
+router.get('/signup', getSignup);
+router.post('/signup', postSignup);
+router.get('/logout', getLogout);
 
-module.exports = routes;
+module.exports = router;

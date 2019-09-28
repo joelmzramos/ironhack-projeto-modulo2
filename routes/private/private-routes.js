@@ -7,7 +7,7 @@ const {
   createService,
 } = require('../../controllers/private-controller');
 
-const routes = express();
+const router = express();
 
 const checkRoles = role => (req, res, next) => {
   if (req.isAuthenticated() && req.user.role === role) {
@@ -18,10 +18,11 @@ const checkRoles = role => (req, res, next) => {
 
 const checkSp = checkRoles('service provider');
 
-routes.get('/home', checkSp, home);
-routes.get('/customer', checkSp, customer);
-routes.get('/detail/:serviceId', checkSp, detail);
-routes.get('/newservice', checkSp, newService);
-routes.post('/createservice', checkSp, createService);
+router.get('/home', checkSp, home);
+router.get('/customer', checkSp, customer);
+router.get('/detail/:serviceId', checkSp, detail);
+router.get('/newservice', checkSp, newService);
+router.post('/createservice', checkSp, createService);
 
-module.exports = routes;
+module.exports = router;
+

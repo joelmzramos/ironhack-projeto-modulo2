@@ -70,6 +70,30 @@ passport.use(new LocalStrategy((username, password, next) => {
   });
 }));
 
+
+
+// User.findOne({ email })
+// .then((user) => {
+//   if (!user) {
+//     res.render('public/login', {
+//       errorMessage: "The username doesn't exist.",
+//     });
+//     return;
+//   }
+
+//   if (bcrypt.compareSync(password, user.password)) {
+//     // Save the login in the session!
+//     req.session.currentUser = user;
+//     res.redirect('/events');
+//   } else {
+//     res.render('public/login', { errorMessage: 'Incorrect password' });
+//   }
+// })
+// .catch((error) => {
+//   next(error);
+// });
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 

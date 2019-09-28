@@ -10,13 +10,18 @@ const login = (req, res) => {
   res.render('public/login');
 };
 
-const message = (req, res) => {
-  res.render('public/message');
+const signupMessage = (req, res) => {
+  res.render('public/signupMessage');
+};
+
+const loginMessage = (req, res) => {
+  res.render('public/loginMessage');
 };
 
 module.exports = {
   index,
   about,
   login,
-  message
+  signupMessage,
+  loginMessage
 };
