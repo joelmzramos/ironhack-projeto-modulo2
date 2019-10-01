@@ -1,3 +1,4 @@
+const Users = require('../models/Users');
 const home = (req, res) => {
   
   res.render('private/home');
@@ -14,6 +15,7 @@ const detail = (req, res) => {
 
 const newService = (req, res) => {
   res.render('private/newservice');
+  // Users.find({})
 };
 
 const createService = (req, res) => {

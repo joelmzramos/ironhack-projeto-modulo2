@@ -28,6 +28,7 @@ const userSchema = new Schema({
   // fields for service providers:
   cnpj: { type: Number },
   coreBusiness: { type: String },
+  customerID: { type: Schema.Types.ObjectId, ref: 'Users' },
 });
 
 const User = mongoose.model('User', userSchema);
