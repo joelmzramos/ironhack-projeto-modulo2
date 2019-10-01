@@ -10,7 +10,8 @@ const serviceSchema = new Schema({
   price: { type: Number, required: true },
   description: String,
   status: { type: String, enum: ['Aguardando orçamento', 'Orçamento disponibilizado', 'Em andamento', 'Concluído'] },
-  userID: { type: Schema.Types.ObjectId, ref: 'User' },
+  providerID: { type: Schema.Types.ObjectId, ref: 'User' },
+  customerID: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
 const Service = mongoose.model('Service', serviceSchema);

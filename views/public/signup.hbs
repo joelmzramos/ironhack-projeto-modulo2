@@ -5,8 +5,8 @@
       <h3><img id="logo-img" src="../images/flow.jpg" class="" alt="..."> acompanhe aqui</h1>
     </a> --}}
     <a id="logo-name" class="navbar-brand" href="/">
-    <h3>acompanhe aqui</h1>
-  </a>
+      <h3>acompanhe aqui</h1>
+    </a>
   </div>
   <div class="nav-right">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -24,14 +24,14 @@
 
 {{!-- </section> --}}
 <section id="signup-container">
-  <div id="signup">
-    {{#unless modal}}
-    <form action="/signup" method="POST">
+    <div id="signup">
+    <form action="/signup" method="POST" enctype="multipart/form-data">
       {{!-- =============================TIPO DE USUÁRIO=============================================== --}}
       <h4>Tipo de usuário</h4>
       <div id="check-button">
         <div class="form-check form-check-inline">
-          <input checked="checked" class="form-check-input" type="radio" name="role" id="inlineRadio1" value="service provider">
+          <input checked="checked" class="form-check-input" type="radio" name="role" id="inlineRadio1"
+            value="service provider">
           <label class="form-check-label" for="inlineRadio1"> Prestador de serviços</label>
         </div>
         <div class="form-check form-check-inline">
@@ -42,37 +42,38 @@
       <h4>Informações de acesso</h4>
       <div class="form-group">
         <label for="inputAddress">Usuário*</label>
-        <input name="username" type="text" class="form-control" id="Nome" placeholder="">
+        <input name="username" type="text" class="form-control" id="Nome" maxlength = "15" placeholder="">
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-8">
           <label for="inputEmail4">E-mail*</label>
           <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="">
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
           <label for="inputPassword4">Senha*</label>
-          <input name="password" type="password" class="form-control" id="inputPassword4" placeholder="">
+          <input name="password" type="password" class="form-control" id="inputPassword4" maxlength = "15" placeholder="">
         </div>
       </div>
+        <span>*Campos obrigatórios</span>
       {{!-- =============================INFORMAÇÕES DE ACESSO=============================================== --}}
       <h4>Dados cadastrais</h4>
       <div class="form-group">
-        <label for="inputAddress">Nome*</label>
+        <label for="inputAddress">Nome</label>
         <input name="name" type="text" class="form-control" id="Nome" placeholder="">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputEmail4">CPF*</label>
+          <label for="inputEmail4">CPF</label>
           <input name="cpf" type="number" class="form-control" id="cpf" placeholder="___.___.___-__">
         </div>
       </div>
       <div class="form-row" id="data-sp">
         <div class="form-group col-md-6">
-          <label for="inputEmail4">CNPJ*</label>
+          <label for="inputEmail4">CNPJ</label>
           <input name="cnpj" type="number" class="form-control" id="cpf" placeholder="__.___.___/____-__">
         </div>
         <div class="form-group col-md-6">
-          <label for="inputPassword4">Ramo de atuação*</label>
+          <label for="inputPassword4">Ramo de atuação</label>
 
           <select name="coreBusiness" id="inputState" class="form-control">
             <option>Assistência técnica</option>
@@ -90,11 +91,11 @@
       <h4>Contato</h4>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputPassword4">Número do celular*</label>
+          <label for="inputPassword4">DDD + Número do celular</label>
           <input name="cellPhone" type="number" class="form-control" id="celular" placeholder="">
         </div>
         <div class="form-group col-md-6">
-          <label for="inputEmail4">Número do telefone</label>
+          <label for="inputEmail4">DDD + Número do telefone</label>
           <input name="phoneNumber" type="number" class="form-control" id="telefone" placeholder="">
         </div>
       </div>
@@ -102,26 +103,26 @@
       <h4>Endereço</h4>
       <div class="form-group">
         <label for="inputAddress2">Endereço</label>
-        <input name="adress_street" type="text" class="form-control" id="inputAddress2" placeholder="">
+        <input name="street" type="text" class="form-control" id="inputAddress2" placeholder="">
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
           <label for="inputEmail4">Número</label>
-          <input name="adress_number" type="number" class="form-control" id="endereço" placeholder="">
+          <input name="number" type="number" class="form-control" id="endereço" placeholder="">
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-8">
           <label for="inputPassword4">Complemento</label>
-          <input name="adress_complement" type="text" class="form-control" id="cnpj" placeholder="">
+          <input name="complement" type="text" class="form-control" id="cnpj" placeholder="">
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-5">
           <label for="inputCity">Cidade</label>
-          <input name="adress_city" type="text" class="form-control" id="inputCity">
+          <input name="city" type="text" class="form-control" id="inputCity">
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">Estado</label>
-          <select name="adress_state" id="inputState" class="form-control">
+          <select name="state" id="inputState" class="form-control">
             <option>Acre (AC) </option>
             <option>Alagoas (AL)</option>
             <option>Amapá (AP)</option>
@@ -151,9 +152,9 @@
             <option>Tocantins (TO)</option>
           </select>
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label for="inputZip">Cep</label>
-          <input name="adress_postalCode" type="text" class="form-control" id="inputZip" placeholder="_____-___" maxlength="9">
+          <input name="postalCode" type="text" class="form-control" id="inputZip" placeholder="_____-___" maxlength="9">
         </div>
       </div>
       {{!-- =============================PROFILE PICTURE=============================================== --}}
@@ -163,13 +164,9 @@
         <input name="profilePicture" type="file" class="form-control-file" id="exampleFormControlFile1">
       </div>
       {{!-- =============================SUBMIT BUTTON=============================================== --}}
-        <div id="form-button">
-          <button type="submit" class="btn btn-primary">Fazer cadastro</button>
-        </div>
+      <div id="form-button">
+        <button type="submit" class="btn btn-primary">Fazer cadastro</button>
+      </div>
     </form>
-    {{else}}  
-        <p>Cadastro Realizado com sucesso!!!</p>
-        <a href="/login"><p>Ir para o Login.</p></a>
-    {{/unless}}  
   </div>
 </section>

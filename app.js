@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+const flash = require("connect-flash");
 const Users = require('./models/Users');
 
 const app = express();
@@ -52,20 +53,19 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-passport.use(new LocalStrategy((username, password, next) => {
+app.use(flash());
+passport.use(new LocalStrategy({passReqToCallback: true
+}, (req, username, password, next) => {
   Users.findOne({ username }, (err, user) => {
-
     if (err) {
       return next(err);
     }
     if (!user) {
       return next(null, false, { message: 'Incorrect username' });
     }
-
     if (!bcrypt.compareSync(password, user.password)) {
       return next(null, false, { message: 'Incorrect password' });
     }
-
     return next(null, user);
   });
 }));
@@ -78,11 +78,11 @@ app.set('views', `${__dirname}'/views'`);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const index = require('./routes/public/index');
+const publicRoutes = require('./routes/public/public-routes');
 const authRoutes = require('./routes/public/auth-routes');
 const privateRoutes = require('./routes/private/private-routes');
 
-app.use('/', index);
+app.use('/', publicRoutes);
 app.use('/', authRoutes);
 app.use('/', privateRoutes);
 
