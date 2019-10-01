@@ -11,7 +11,7 @@ const serviceSchema = new Schema({
   description: String,
   status: { type: String, enum: ['Aguardando orçamento', 'Orçamento disponibilizado', 'Em andamento', 'Concluído'] },
   providerID: { type: Schema.Types.ObjectId, ref: 'User' },
-  // customerID: { type: Schema.Types.ObjectId, ref: 'User' },
+  customerID: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
 const Service = mongoose.model('Service', serviceSchema);

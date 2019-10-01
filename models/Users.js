@@ -32,9 +32,7 @@ const userSchema = new Schema({
   cnpj: { type: Number },
   coreBusiness: { type: String },
 
-  // services:
-  services: [{ type: Schema.Types.ObjectId, ref: 'Service' }]
-}, {
+ }, {
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at'
