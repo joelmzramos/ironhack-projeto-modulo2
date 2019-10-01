@@ -14,7 +14,10 @@ const userSchema = new Schema({
   cpf: { type: Number },
 
   // optional fields for every user:
-  profilePicture: { type: String },
+  profilePicture: { 
+    imgPath: { type: String },
+    imgName: { type: String },
+  },
   adress: {
     street: { type: String },
     number: { type: Number },
@@ -28,6 +31,14 @@ const userSchema = new Schema({
   // fields for service providers:
   cnpj: { type: Number },
   coreBusiness: { type: String },
+
+  // services:
+  services: [{ type: Schema.Types.ObjectId, ref: 'Service' }]
+}, {
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
+  }
 });
 
 const User = mongoose.model('User', userSchema);

@@ -32,8 +32,7 @@
 <section id="home-container">
 
   <div id="home-services">
-    <h3>Minha área exclusiva</h3>
-<p>{{this.username}}</p>
+    <h3>Área exclusiva de {{this.username}}</h3>
     {{!-- =============================ENDEREÇO=============================================== --}}
     <div id="home-search" class="form-row">
       <div class="form-group col-md-4">
@@ -331,8 +330,14 @@
 <!-- ===================================HOME 2=========================================== -->
 
 
+{{!-- {{#each users}}
+<p>{{username}}</p>
+{{/each}} --}}
 
-
+ 
+<pre>
+{{users}}
+</pre>
 
 
 

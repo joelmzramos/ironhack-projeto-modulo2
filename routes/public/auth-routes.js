@@ -1,4 +1,6 @@
 const express = require('express');
+const router = express();
+const uploadCloud = require('../../config/cloudnary.js');
 
 const {
   getLogin,
@@ -8,12 +10,10 @@ const {
   getLogout,
 } = require('../../controllers/auth-controller');
 
-const router = express();
-
 router.get('/login', getLogin);
 router.post('/login', postLogin);
 router.get('/signup', getSignup);
-router.post('/signup', postSignup);
+router.post('/signup', uploadCloud.single("profilePicture"), postSignup);
 router.get('/logout', getLogout);
 
 module.exports = router;

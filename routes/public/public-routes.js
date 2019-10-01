@@ -3,7 +3,8 @@ const {
   index,
   about,
   login,
-  // message
+  loginMessage,
+  signupMessage
 } = require('../../controllers/public-controller');
 
 const router = express();
@@ -11,6 +12,8 @@ const router = express();
 router.get('/', index);
 router.get('/about', about);
 router.get('/login', login);
+router.get('/login-message', loginMessage);
+router.get('/signup-message', signupMessage);
 // router.get('/message', message);
 
 module.exports = router;

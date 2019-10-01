@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+const flash = require("connect-flash");
 const Users = require('./models/Users');
 
 const app = express();
@@ -52,47 +53,22 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-passport.use(new LocalStrategy((username, password, next) => {
+app.use(flash());
+passport.use(new LocalStrategy({passReqToCallback: true
+}, (req, username, password, next) => {
   Users.findOne({ username }, (err, user) => {
-
     if (err) {
       return next(err);
     }
     if (!user) {
       return next(null, false, { message: 'Incorrect username' });
     }
-
     if (!bcrypt.compareSync(password, user.password)) {
       return next(null, false, { message: 'Incorrect password' });
     }
-
     return next(null, user);
   });
 }));
-
-
-
-// User.findOne({ email })
-// .then((user) => {
-//   if (!user) {
-//     res.render('public/login', {
-//       errorMessage: "The username doesn't exist.",
-//     });
-//     return;
-//   }
-
-//   if (bcrypt.compareSync(password, user.password)) {
-//     // Save the login in the session!
-//     req.session.currentUser = user;
-//     res.redirect('/events');
-//   } else {
-//     res.render('public/login', { errorMessage: 'Incorrect password' });
-//   }
-// })
-// .catch((error) => {
-//   next(error);
-// });
-
 
 app.use(passport.initialize());
 app.use(passport.session());

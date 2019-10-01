@@ -1,20 +1,23 @@
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+// const ensureLogin = require("connect-ensure-login");
 const Users = require('../models/Users');
 const saltRounds = 10;
-require('dotenv').config();
 
+require('dotenv').config();
 const emailAdress = process.env.NODEMAILER_ADDRESS;
-// console.log(Adress, "========================================================================");
 const emailPassword = process.env.NODEMAILER_PASSWORD;
-// console.log(Password, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
 const getSignup = (req, res) => {
   res.render('public/signup');
 };
 
 const postSignup = async (req, res) => {
-  const { username, password, role, name, phoneNumber, cellPhone, email, cpf, profilePicture, street, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
+  const { username, password, role, name, phoneNumber, cellPhone, email, cpf, /*profilePicture,*/ street, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
+  //==========verificar url = undefined quando não há imagem selecionada==================
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
+
   const userData = {
     username, // same as "username = username"
     password,
@@ -24,7 +27,10 @@ const postSignup = async (req, res) => {
     cellPhone,
     email,
     cpf,
-    profilePicture,
+    profilePicture: {
+      imgPath,
+      imgName,
+    },
     street,
     number,
     complement,
@@ -50,9 +56,11 @@ const postSignup = async (req, res) => {
   if (username === "" || email === "" || password === "") {
     console.log("empty username, e-mail or password");
     res.render("public/signup-message", { message: `Os campos "usuário", "e-mail" e "senha" são de preenchimento obrigatório. Tente novamente.` });
+    return;
   } else if (username.length > 15 || password.length > 15) {
     console.log("username or password less than 15 characters");
     res.render("public/signup-message", { message: `Os campos "usuário" e "senha" devem ter no máximo 15 caracteres. Tente novamente.` });
+    return;
   }
 
   Users.findOne({ username })
@@ -64,7 +72,8 @@ const postSignup = async (req, res) => {
     })
     .catch(error => {
       next(error)
-    });
+    }); const ensureLogin = require("connect-ensure-login");
+
 
   Users.findOne({ email })
     .then(user => {
@@ -95,9 +104,8 @@ const postSignup = async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: 'hotmail',
       auth: {
-        // user: emailAdress,
-        // pass: emailPassword
-
+        user: emailAdress,
+        pass: emailPassword
       }
     });
 
@@ -116,6 +124,7 @@ const postSignup = async (req, res) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   }
+
   // ===========================NODEMAILER CODE (ABOVE)==============================
 
   try {
@@ -127,6 +136,7 @@ const postSignup = async (req, res) => {
     });
     res.render('public/signup-message', { modal: true });
   } catch (error) {
+    
     res.render("public/signup-message", { message: "Ocorreu um erro no envio de e-mail para o usuário cadastrado. Verifique se o endereço inserido de e-mail está correto e tente novamente. Caso o erro persista, entre em contato com a Acompanhe Aqui." });
 
   }
@@ -136,17 +146,23 @@ const postSignup = async (req, res) => {
 // =================================LOGIN CONTROLS BELOW==========================================
 
 
-const getLogin = (req, res) => {
-  res.render('public/login');
+// const getLogin = (req, res) => {
+//   res.render('public/login');
+// };
+
+const getLogin = (req, res, next) => {
+  res.render("public/login", { "message": req.flash("error") });
 };
 
 const postLogin = passport.authenticate('local', {
   successRedirect: '/home',
-  failureRedirect: '/login',
-  failureFlash: false,
+  failureRedirect: '/login-message',
+  failureFlash: true,
+  passReqToCallback: true
 });
 
-// =================================LOGIN CONTROLS ABOVE==========================================
+
+// =================================LOGOUT CONTROLS BELOW==========================================
 
 const getLogout = (req, res) => {
   req.session.destroy((err) => {
@@ -155,11 +171,14 @@ const getLogout = (req, res) => {
   });
 };
 
+// =================================LOGOUT CONTROLS ABOVE==========================================
+
 module.exports = {
-  getLogin,
-  postLogin,
   getSignup,
   postSignup,
+  getLogin,
+  postLogin,
+  // getHome,
   getLogout,
 };
 

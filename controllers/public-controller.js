@@ -11,11 +11,11 @@ const login = (req, res) => {
 };
 
 const signupMessage = (req, res) => {
-  res.render('public/signupMessage');
+  res.render('public/signup-message');
 };
 
 const loginMessage = (req, res) => {
-  res.render('public/loginMessage');
+  res.render('public/login-message', { message: 'Incorrect*************************** password' });
 };
 
 module.exports = {
