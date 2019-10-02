@@ -13,10 +13,9 @@ const getSignup = (req, res) => {
 };
 
 const postSignup = async (req, res) => {
-  const { username, password, role, name, phoneNumber, cellPhone, email, cpf, /*profilePicture,*/ street, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
+  const { username, password, role, name, phoneNumber, cellPhone, email, cpf, street, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
   //==========verificar url = undefined quando não há imagem selecionada==================
-  const imgPath = req.file.url;
-  const imgName = req.file.originalname;
+  const imgPath = req.file.url ? req.file.url : '';
 
   const userData = {
     username, // same as "username = username"
@@ -27,10 +26,7 @@ const postSignup = async (req, res) => {
     cellPhone,
     email,
     cpf,
-    profilePicture: {
-      imgPath,
-      imgName,
-    },
+    imgPath,
     street,
     number,
     complement,
