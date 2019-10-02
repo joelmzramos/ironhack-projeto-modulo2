@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const Users = require('./models/Users'); // Import of the model Recipe from './models/Recipe'
+const Service = require('./models/Services'); // Import of the model Recipe from './models/Recipe'
+
+const { Schema } = mongoose;
+
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
@@ -55,6 +59,28 @@ const data = [
   },
 ];
 
+const dataServices = [{
+  name: 'Revisão Completa',
+  startDate: new Date(),
+  deadline: '2',
+  price: 40,
+  description: 'Revisão completa com troca de óleo',
+  status: 'Aguardando orçamento',
+  providerID: '5d862f97a306bd1b84fb8d3a',
+  customerID: '5d8630168ee96b1bda7c2382',
+},
+{
+  name: 'Alinhamento',
+  startDate: new Date(),
+  deadline: '1',
+  price: 40,
+  description: 'Alinhamento e Balanceamento',
+  status: 'Aguardando orçamento',
+  providerID: '5d862f97a306bd1b84fb8d3a',
+  customerID: '5d8630168ee96b1bda7c2382',
+},
+]
+
 // Connection to the database "recipeApp"
 mongoose.connect('mongodb://localhost/project-module-2', { useNewUrlParser: true })
   .then(() => {
@@ -63,7 +89,7 @@ mongoose.connect('mongodb://localhost/project-module-2', { useNewUrlParser: true
     console.error('Error connecting to mongo', err);
   });
 
-Users.insertMany(data)
+Service.insertMany(dataServices)
   .then((celebritys) => {
     console.log(celebritys);
     mongoose.disconnect();
@@ -71,6 +97,24 @@ Users.insertMany(data)
   .catch((err) => {
     console.log(err);
   });
+
+// Service.deleteMany()
+//   .then((celebritys) => {
+//     console.log(celebritys);
+//     mongoose.disconnect();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// Users.insertMany(data)
+//   .then((celebritys) => {
+//     console.log(celebritys);
+//     mongoose.disconnect();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 // Users.deleteMany()
 //   .then((celebritys) => {
