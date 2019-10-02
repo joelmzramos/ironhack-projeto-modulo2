@@ -9,7 +9,7 @@ const serviceSchema = new Schema({
   deadline: { type: Number, required: true },
   price: { type: Number, required: true },
   description: String,
-  status: { type: String, enum: ['Aguardando orçamento', 'Orçamento disponibilizado', 'Em andamento', 'Concluído'] },
+  status: { type: Array, enum: ['Aguardando orçamento', 'Orçamento disponibilizado', 'Em andamento', 'Concluído'] },
   providerID: { type: Schema.Types.ObjectId, ref: 'User' },
   customerID: { type: Schema.Types.ObjectId, ref: 'User' },
 });
