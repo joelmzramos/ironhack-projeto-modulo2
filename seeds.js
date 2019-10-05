@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const Users = require('./models/Users'); // Import of the model Recipe from './models/Recipe'
+const Service = require('./models/Services'); // Import of the model Recipe from './models/Recipe'
+
+const { Schema } = mongoose;
+
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
@@ -18,7 +22,7 @@ const data = [
     cellPhone: 11999440033,
     email: 'testeprojeto@ironhack.com',
     cpf: '33802223136',
-    profilePicture: '',
+    imgPath: '',
     adress: {
       street: 'Rua da Ironhack',
       number: 2950,
@@ -40,7 +44,7 @@ const data = [
     cellPhone: 11999440033,
     email: 'testeprojeto@ironhack.com',
     cpf: '33802223136',
-    profilePicture: '',
+    imgPath: '',
     adress: {
       street: 'Rua da Ironhack',
       number: 2950,
@@ -55,6 +59,38 @@ const data = [
   },
 ];
 
+const dataServices = [{
+  name: 'Revisão Completa',
+  startDate: new Date(),
+  deadline: '2',
+  price: 40,
+  description: 'Revisão completa com troca de óleo',
+  status: 'Aguardando orçamento',
+  providerID: '5d98f2f7dca1dc356b8d81ca',
+  customerID: '5d98f349dca1dc356b8d81cb',
+},
+{
+  name: 'Alinhamento',
+  startDate: new Date(),
+  deadline: '1',
+  price: 40,
+  description: 'Alinhamento e Balanceamento',
+  status: 'Aguardando orçamento',
+  providerID: '5d98f2f7dca1dc356b8d81ca',
+  customerID: '5d98f349dca1dc356b8d81cb',
+},
+{
+  name: 'Funilaria',
+  startDate: new Date(),
+  deadline: '1',
+  price: 40,
+  description: 'Alinhamento e Balanceamento',
+  status: 'Aguardando orçamento',
+  providerID: '5d98f2f7dca1dc356b8d81ca',
+  customerID: '5d98f349dca1dc356b8d81cb',
+},
+]
+
 // Connection to the database "recipeApp"
 mongoose.connect('mongodb://localhost/project-module-2', { useNewUrlParser: true })
   .then(() => {
@@ -63,7 +99,7 @@ mongoose.connect('mongodb://localhost/project-module-2', { useNewUrlParser: true
     console.error('Error connecting to mongo', err);
   });
 
-Users.insertMany(data)
+Service.insertMany(dataServices)
   .then((celebritys) => {
     console.log(celebritys);
     mongoose.disconnect();
@@ -71,6 +107,24 @@ Users.insertMany(data)
   .catch((err) => {
     console.log(err);
   });
+
+// Service.deleteMany()
+//   .then((celebritys) => {
+//     console.log(celebritys);
+//     mongoose.disconnect();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// Users.insertMany(data)
+//   .then((celebritys) => {
+//     console.log(celebritys);
+//     mongoose.disconnect();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 // Users.deleteMany()
 //   .then((celebritys) => {

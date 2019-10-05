@@ -1,10 +1,9 @@
+require('dotenv').config();
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-// const ensureLogin = require("connect-ensure-login");
 const Users = require('../models/Users');
-const saltRounds = 10;
 
-require('dotenv').config();
+const saltRounds = 10;
 const emailAdress = process.env.NODEMAILER_ADDRESS;
 const emailPassword = process.env.NODEMAILER_PASSWORD;
 
@@ -13,8 +12,8 @@ const getSignup = (req, res) => {
 };
 
 const postSignup = async (req, res) => {
-  const { username, password, role, name, phoneNumber, cellPhone, email, cpf, street, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
-  //==========verificar url = undefined quando não há imagem selecionada==================
+  const { username, password, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
+
   const imgPath = req.file ? req.file.url : '';
 
   const userData = {
@@ -27,17 +26,10 @@ const postSignup = async (req, res) => {
     email,
     cpf,
     imgPath,
-    street,
-    number,
-    complement,
-    neighborhood,
-    city,
-    state,
-    postalCode,
     cnpj,
     coreBusiness,
-    adress: {
-      street,
+    completeAddress: {
+      address,
       number,
       complement,
       neighborhood,
@@ -90,7 +82,7 @@ const postSignup = async (req, res) => {
   userData.password = hash;
 
   const newUser = new Users(userData);
-  console.log(newUser);
+  console.log('(auth-controller)', newUser);
 
   // ========================NODEMAILER CODE (BELOW)===============================
 
@@ -113,38 +105,31 @@ const postSignup = async (req, res) => {
       html: '<p>Bem vindo ao aplicativo Acompanhe Aqui!</p><br><p>Não perca tempo e acompanhe já os seus serviços contratados. Acesse a nossa plataforma por meio da url: http://acompanheaqui.herokuapp.com e complete o seu cadastro. Sua senha inicial é 1234 e, para a sua segurança, deve ser alterada no primeiro acesso.</p><br><p>Equipe Acompanhe Aqui</p>'// html body
     });
 
-    console.log('Message sent: %s', info.messageId);
+    console.log('(auth-controller) Message sent: %s', info.messageId);
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
     // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    console.log('(auth-controller) Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   }
 
   // ===========================NODEMAILER CODE (ABOVE)==============================
 
   try {
-    await main()
-    newUser.save((err) => {
+    await main();
+    await newUser.save((err) => {
       if (err) {
         res.render("public/signup-message", { message: "Ocorreu um erro no cadastro do usuário. Tente novamente." });
+      } else {
+        res.render('public/signup-message', { modal: true });
       }
     });
-    res.render('public/signup-message', { modal: true });
   } catch (error) {
-    
     res.render("public/signup-message", { message: "Ocorreu um erro no envio de e-mail para o usuário cadastrado. Verifique se o endereço inserido de e-mail está correto e tente novamente. Caso o erro persista, entre em contato com a Acompanhe Aqui." });
-
   }
-  // res.render('public/succes-login-page');
 };
 
 // =================================LOGIN CONTROLS BELOW==========================================
-
-
-// const getLogin = (req, res) => {
-//   res.render('public/login');
-// };
 
 const getLogin = (req, res, next) => {
   res.render("public/login", { "message": req.flash("error") });
@@ -156,7 +141,6 @@ const postLogin = passport.authenticate('local', {
   failureFlash: true,
   passReqToCallback: true
 });
-
 
 // =================================LOGOUT CONTROLS BELOW==========================================
 
@@ -174,7 +158,6 @@ module.exports = {
   postSignup,
   getLogin,
   postLogin,
-  // getHome,
   getLogout,
 };
 

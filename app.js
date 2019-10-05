@@ -41,12 +41,12 @@ app.use(session({
 }));
 
 passport.serializeUser((user, cb) => {
-  console.log('User +' + user);
+  console.log('(app.js) User +' + user);
   cb(null, user._id);
 });
 
 passport.deserializeUser((id, cb) => {
-  console.log('Id +' + id);
+  console.log('(app.js) Id +' + id);
   Users.findById(id, (err, user) => {
     if (err) { return cb(err); }
     cb(null, user);

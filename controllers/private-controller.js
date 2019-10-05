@@ -4,6 +4,7 @@
 
 
 const Users = require('../models/Users');
+const Services = require('../models/Services');
 
 // const home = (req, res, next) => {
 //   console.log("////////////////////////////////////////////", req.user, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -17,14 +18,22 @@ const Users = require('../models/Users');
 // };
 
 
-const home = (req, res, next) => {
-  console.log('============>entrou na home<======================================');
-  Users.findById(req.user._id)
-    .then(user => {
-      console.log(user);
-      res.render('private/home', user)
-    })
-    .catch(err => console.log(err));
+const home = async (req, res, next) => {
+  const user = await Users.findById(req.user._id);
+  const isProvider = user.role === "provider";
+
+  const services = await Services.find({ providerID: req.user._id }).populate('customerID');
+
+  const dataHome = {
+    user,
+    services,
+  };
+
+  if (isProvider) {
+    return res.render('private/provider/home', dataHome);
+  } else {
+    return res.render('private/customer/home', dataHome);
+  };
 };
 
 // router.get('/:id', (req, res, next) => {
@@ -44,8 +53,13 @@ const home = (req, res, next) => {
 // });
 
 
-const customer = (req, res) => {
-  res.render('private/customer');
+// const customer = (req, res) => {
+//   res.render('private/customer');
+// };
+
+const editUser = (req, res) => {
+  res.render('private/edit-user', {user:req.user, coreBusiness: req.user.coreBusiness, state: req.user.completeAddress.state });
+
 };
 
 const detail = (req, res) => {
@@ -53,6 +67,7 @@ const detail = (req, res) => {
 };
 
 const newService = (req, res) => {
+
   res.render('private/newservice');
 };
 
@@ -62,7 +77,8 @@ const createService = (req, res) => {
 
 module.exports = {
   home,
-  customer,
+  editUser,
+  // customer,
   detail,
   newService,
   createService,

@@ -5,7 +5,8 @@ const express = require("express");
 
 const {
   home,
-  customer,
+  // customer,
+  editUser,
   detail,
   newService,
   createService,
@@ -20,11 +21,12 @@ const checkRoles = role => (req, res, next) => {
   return res.redirect('/login');
 };
 
-const checkSp = checkRoles('service provider');
+const checkSp = checkRoles('provider');
 const ensureLogin = require("connect-ensure-login");
 
-router.get('/home', checkSp, ensureLogin.ensureLoggedIn(), home);
-router.get('/customer', checkSp, customer);
+router.get('/home', ensureLogin.ensureLoggedIn(), home);
+// router.get('/customer', checkSp, customer);
+router.get('/edit/user', ensureLogin.ensureLoggedIn(), editUser);
 router.get('/detail/:serviceId', checkSp, detail);
 router.get('/newservice', checkSp, newService);
 router.post('/createservice', checkSp, createService);
