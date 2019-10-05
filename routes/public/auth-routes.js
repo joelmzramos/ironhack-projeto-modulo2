@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express();
-const uploadCloud = require('../../config/cloudnary.js');
+const uploadCloud = require('../../config/cloudinary.js');
 
 const {
   getLogin,

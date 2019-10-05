@@ -22,7 +22,7 @@ const data = [
     cellPhone: 11999440033,
     email: 'testeprojeto@ironhack.com',
     cpf: '33802223136',
-    profilePicture: '',
+    imgPath: '',
     adress: {
       street: 'Rua da Ironhack',
       number: 2950,
@@ -44,7 +44,7 @@ const data = [
     cellPhone: 11999440033,
     email: 'testeprojeto@ironhack.com',
     cpf: '33802223136',
-    profilePicture: '',
+    imgPath: '',
     adress: {
       street: 'Rua da Ironhack',
       number: 2950,
@@ -66,8 +66,8 @@ const dataServices = [{
   price: 40,
   description: 'Revisão completa com troca de óleo',
   status: 'Aguardando orçamento',
-  providerID: '5d862f97a306bd1b84fb8d3a',
-  customerID: '5d8630168ee96b1bda7c2382',
+  providerID: '5d98f2f7dca1dc356b8d81ca',
+  customerID: '5d98f349dca1dc356b8d81cb',
 },
 {
   name: 'Alinhamento',
@@ -76,8 +76,18 @@ const dataServices = [{
   price: 40,
   description: 'Alinhamento e Balanceamento',
   status: 'Aguardando orçamento',
-  providerID: '5d862f97a306bd1b84fb8d3a',
-  customerID: '5d8630168ee96b1bda7c2382',
+  providerID: '5d98f2f7dca1dc356b8d81ca',
+  customerID: '5d98f349dca1dc356b8d81cb',
+},
+{
+  name: 'Funilaria',
+  startDate: new Date(),
+  deadline: '1',
+  price: 40,
+  description: 'Alinhamento e Balanceamento',
+  status: 'Aguardando orçamento',
+  providerID: '5d98f2f7dca1dc356b8d81ca',
+  customerID: '5d98f349dca1dc356b8d81cb',
 },
 ]
 

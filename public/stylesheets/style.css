@@ -38,12 +38,6 @@ nav h3 {
 /* text-transform: capitalize; */
 }
 
-/* #logo-img {
-  height: 60px;
-  padding: 5px;
-  width: auto;
-} */
-
 /* ===============================INDEX PAGE================================= */
 
 /* ============================SECTION 1 (FOTO)=============================== */
@@ -90,8 +84,6 @@ nav h3 {
 #section2-container h2 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 2rem;
-  /* margin: 50px 0px 10px; */
-  /* text-transform: uppercase; */
 }
 
 #section2-container hr {
@@ -107,7 +99,6 @@ nav h3 {
   margin: 0px 0px 24px;
 }
   
-
 /* ============================SECTION 3 (BENEFÍCIOS)=============================== */
 
 #section3 {
@@ -124,7 +115,6 @@ nav h3 {
   padding: 100px 5% 85px;
   text-align: center;
 }
-
 
 #beneficios p {
   margin-bottom: 40px;
@@ -154,7 +144,6 @@ nav h3 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 2rem;
   margin-top: 0px;
-  /* text-transform: uppercase; */
 }
   
 #section3-container hr {
@@ -260,9 +249,7 @@ nav h3 {
   color: #3a9ecb;
 }
 
-
 /* ===============================ABOUT================================= */
-
 
 #about-page {
   display: flex;
@@ -320,14 +307,12 @@ nav h3 {
   background-color: #FFFFFF;
   color:#215259;
   border: 1px solid #FFFFFF;
-  /* margin-left: 10px; */
 }
 
 #signup-button2 {
   background-color: #FFFFFF;
   color:#215259;
   border: 1px solid #FFFFFF;
-  /* margin-left: 10px; */
  }
 
 #sair-button {
@@ -345,24 +330,21 @@ nav h3 {
 }
   
 #signup {
-  /* border: 5px solid red; */
   border-radius: 7px;
   margin: 100px 20px 100px 20px;
   padding: 40px;
   justify-content: center;
   max-width: 800px;
-  background-color: white !important;
-
+  background-color: white;
 }
   
 #signup h4 {
   padding-top: 20px;
-  /* color: red !important; */
-  text-align: center !important;
+  text-align: center;
 }
   
 #check-button {
-  text-align: center !important;
+  text-align: center;
 }
   
 #form-button {
@@ -384,7 +366,6 @@ nav h3 {
 }
   
 #login-form {
-  /* border: 5px solid red; */
   border-radius: 7px;
   margin: 100px 20px auto;
   padding: 40px;
@@ -395,79 +376,97 @@ nav h3 {
 
 /* ============================HOME PAGE=============================== */
 
+/* ============================NAVBAR=============================== */
+
+#nav-dropdown {
+  background-color: #3a9ecb;
+  padding: 4px 14px 4px 4px;
+  border: none;
+  margin: 0px;
+}
+
+.nav-picture {
+  height: 60px;
+  width: 60px;
+  margin-right: 4px;
+  justify-content: center;
+  object-fit: cover;
+}
+
 /* ============================HOME 1=============================== */
 
 #home-container {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   background-color: rgb(0, 0, 58);
-  /* min-width: 100vw; */
-  /* padding: 60px 10px; */
   margin: 0;
-  
+  min-height: 100vh;
 }
 
 /* ===================================HOME 2=========================================== */
 
 #home-services {
-  /* display: flex; */
-  /* justify-content: space-around; */
-  /* align-items: center; */
   background-color: #3a9ecb;
-  /* background-color: #0F0E50; */
   min-height: 100vh;
   width: 95vw;
   padding: 10px 10px;
   border-radius: 30px;
   margin: 4vw; 
 }
+
 #home-services h3 {
-text-align: center;
-color: #FFFFFF;
-font-weight: bold;
-margin: 30px auto;
-}
-
-#home-search {
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   color: #FFFFFF;
-  /* font-size: 60px; */
+  font-weight: bold;
+  margin: 30px auto;
 }
 
-#home-search label {
-font-size: 1.4rem;
+#search-nav {
+  background-color: #3a9ecb;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  margin: -20px 5px 0;
 }
 
-.home-card {
-  border: 10px solid #FFFFFF;
+.search-button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 24px;
+  color: #FFFFFF;
+  border: 1px solid rgba(12, 8, 77, 0.9);
+  border-radius: 10px;;
+  background-color: rgba(12, 8, 77, 0.9);
+}
+
+
+.new-service-button {
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  color: rgba(12, 8, 77, 0.9);
 }
 
 .home-card img {
   justify-content: center;
   object-fit: cover;
-  /* width: auto; */
   height: 300px;
 }
 
 #services {
-  /* display: flex; */
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
   max-width: 100vw;
 }
       
-#newservice, .service {
+.service {
   margin: 20px 0px;
   text-align: center;
   font-size: 0.8rem;
 }
 
-#newservice .card , .service .card {
+.service .card {
   height: 280px;
-  width: 230px !important;
+  width: 236px;
   border-radius: 20px;
   align-items: center;
   padding: 20px;
@@ -475,120 +474,114 @@ font-size: 1.4rem;
 }
 
 .service .card:hover {
+  background-color: rgb(223, 217, 217);
+}
+
+.service .card:active {
   border: 5px solid rgb(0, 0, 58);
 }
 
-#newservice a, .service a {
+.service a {
 text-decoration: none;
-}
-
-#newservice .card {
-  background-color: rgb(223, 217, 217);
 }
 
 .service .card {
   background-color:#FFFFFF;
 }
 
-#newservice h5, .service h5 {
-
+.service h5 {
   font-weight: bold;
   font-size: 1rem;
 }
 
-#newservice h6, .service h6 {
+.service h6 {
   margin: 20px 0px;
-  color: #3a9ecb !important;
-}
-
-#plus-button {
-  margin: 17px auto;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 70px;
-  font-weight: bold;
+  color: #3a9ecb;
 }
 
 .customer-picture {
   justify-content: center;
   object-fit: cover;
-  /* width: auto; */
   width: 100px;
   height: 100px;
-  /* border-radius: 50%; */
   border-radius: 20px;
 }
-
-/* .service .card {
-  border: 4px solid white;
-} */
 
 
 /* ===================================CUSTOMER=========================================== */
 
 /* ===================================CUSTOMER 1=========================================== */
 
+/* ============================CUSTOMER 1=============================== */
+
 #customer-container {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   background-color: rgb(0, 0, 58);
-  min-width: 100vw;
-  padding: 60px 10px;  
-}
-
-.customer-profile {
-  border: 10px solid #FFFFFF;
-}
-
-#customer {
-  /* display: flex; */
-  justify-content: space-around;
-  align-items: center;
-  background-color: #3a9ecb;
-  /* background-color: #0F0E50; */
+  margin: 0;
   min-height: 100vh;
-  width: 100vw;
-  padding: 10px 5vw;
-  /* margin: 0; */
 }
 
-.search-label {
-  margin: 0 15px;
-  color: #FFFFFF;
-  font-size: 1.5rem;
-}
-
-#customer h2 {
-  text-align: center;
-  color: #FFFFFF;
-  /* font-size: 60px; */
-  padding-top: 30px;
-}
+/* ===================================CUSTOMER 2=========================================== */
 
 #customer-services {
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: space-around;
+  background-color: #3a9ecb;
+  min-height: 100vh;
+  width: 95vw;
+  padding: 10px 10px;
+  border-radius: 30px;
+  margin: 4vw; 
 }
 
-#customer-cards {
-/* min-width: 300px; */
-  max-width: 700px;
-  margin: 20px 2vw;  
+#customer-services h3 {
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin: 30px auto;
 }
 
-.customer-card img {
+#customer-card-deck {
   justify-content: center;
-  object-fit: cover;
-  /* width: auto; */
-  height: 300px;
+  align-items: center;
+  max-width: 100vw;
 }
+
+#customer-card-deck .card {
+  border-radius: 20px;
+  align-items: center;
+  padding: 20px;
+  color: black;
+  max-width: 740px;
+}
+
+
+
+#customer-card-deck .card:hover {
+  background-color: rgb(223, 217, 217);
+}
+
+#customer-card-deck .card:active {
+  border: 5px solid rgb(0, 0, 58);
+}
+
+#customer-card-deck a {
+text-decoration: none;
+}
+
+#customer-card-deck .card {
+  background-color:#FFFFFF;
+}
+
+#customer-card-deck h5 {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+#customer-card-deck h6 {
+  margin: 20px 0px;
+  color: #3a9ecb;
+}
+
 
 /* ===================================ERROR PAGE=========================================== */
 
@@ -596,31 +589,22 @@ text-decoration: none;
   display: flex;
   justify-content: center;
   background-color: #3a9ecb;
-  /* height: calc(100vh - 70px); */
   height: 100vh;
 }
   
 #error-message {
-  /* border: 5px solid red; */
   border-radius: 7px;
   margin: 100px 20px auto;
   padding: 40px;
   justify-content: center;
   max-width: 440px;
   background-color: white !important;
-  /* line-height: 30px */
 }
 
 #error-message h2 {
   padding-bottom: 16px;
   text-align: center;
 }
-
-/* #message {
-  color: red;
-  font-weight: bold;
-  text-align: left;
-} */
 
 #success-message {
   border-radius: 7px;
