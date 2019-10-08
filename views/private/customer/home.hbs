@@ -10,12 +10,11 @@
     <div class="dropdown mr-1">
       <button type="button" id="nav-dropdown" class="btn btn-primary dropdown-toggle" id="dropdownMenuOffset"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        <img class="nav-picture" src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png{{provider.imgPath}}" alt="">
-        {{provider.username}}
-        Marcus
+        <img class="nav-picture" src="{{user.imgPath}}" alt="">
+        {{user.username}}
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <a class="dropdown-item" href="#">Editar meu perfil</a>
+        <a class="dropdown-item" href="/edit/user">Editar meu perfil</a>
         <a class="dropdown-item" href="/">Página inicial</a>
         <a class="dropdown-item" href="/Signup">Cadatro</a>
         <a class="dropdown-item" href="/logout"><strong>Sair</strong></a>
@@ -45,22 +44,24 @@
     <!-- ===================================PROVIDER2=========================================== -->
 
     <div id="customer-card-deck" class="card-deck">
-      <a href="/about">
+    {{#each services}}
+      <a href="/service/{{_id}}">
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+              <img src="{{providerID.imgPath}}"
                 class="card-img" alt="...">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Barrichello{{customerID.username}}</h5>
+                <h5 class="card-title">{{providerID.username}}</h5>
                 <h6><strong>Serviço:</strong></h6>
-                <p class="card-text">Funilaria{{name}}</p>
+                <p class="card-text">{{name}}</p>
               </div>
             </div>
           </div>
         </div>
       </a>
+    {{/each}}
     </div>
 </section>

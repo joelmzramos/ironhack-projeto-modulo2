@@ -45,9 +45,9 @@
     <div id="services" class="card-deck">
       {{#each services}}
       <div class="service">
-        <a href="/about">
+        <a href="/service/{{_id}}">
           <div class="card" style="width: 14rem;">
-            <img src="https://torneioempreendedor.com.br/wp-content/uploads/2018/04/inscricoes-fechadas.png"
+            <img src="{{customerID.imgPath}}"
               class="customer-picture card-img-top" alt="...">
             <div class="card-body">
               <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->

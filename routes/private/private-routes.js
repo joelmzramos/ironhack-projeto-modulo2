@@ -6,10 +6,12 @@ const express = require("express");
 const {
   home,
   // customer,
-  editUser,
-  detail,
+  getEditUser,
+  postEditUser,
+  service,
   newService,
-  createService,
+  // createService,
+  getLogout,
 } = require('../../controllers/private-controller');
 
 const router = express();
@@ -25,11 +27,13 @@ const checkSp = checkRoles('provider');
 const ensureLogin = require("connect-ensure-login");
 
 router.get('/home', ensureLogin.ensureLoggedIn(), home);
-// router.get('/customer', checkSp, customer);
-router.get('/edit/user', ensureLogin.ensureLoggedIn(), editUser);
-router.get('/detail/:serviceId', checkSp, detail);
+// ROTAS DE EDIÇÃO COM PROBLEMAS=========================================================================='''''''''''''1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+router.get('/edit/user', ensureLogin.ensureLoggedIn(), getEditUser);
+router.post('/edit/user/:id', postEditUser);
+router.get('/service/:serviceId', checkSp, service);
 router.get('/newservice', checkSp, newService);
-router.post('/createservice', checkSp, createService);
+// router.post('/createservice', checkSp, createService);
+router.get('/logout', getLogout);
 
 module.exports = router;
 

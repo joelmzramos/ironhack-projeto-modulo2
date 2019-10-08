@@ -11,6 +11,8 @@ const getSignup = (req, res) => {
   res.render('public/signup');
 };
 
+// const { username, password, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
+
 const postSignup = async (req, res) => {
   const { username, password, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
 
@@ -142,22 +144,12 @@ const postLogin = passport.authenticate('local', {
   passReqToCallback: true
 });
 
-// =================================LOGOUT CONTROLS BELOW==========================================
-
-const getLogout = (req, res) => {
-  req.session.destroy((err) => {
-    if (err) console.log(err);
-    res.redirect('/login');
-  });
-};
-
-// =================================LOGOUT CONTROLS ABOVE==========================================
+// ===========================LOGOUT CONTROLS ABOVE==========================================
 
 module.exports = {
   getSignup,
   postSignup,
   getLogin,
   postLogin,
-  getLogout,
 };
 

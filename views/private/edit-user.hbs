@@ -1,4 +1,5 @@
 {{!-- ===================================NAVBAR=========================================== --}}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="nav-left">
     <a id="logo-name" class="navbar-brand" href="/">
@@ -6,14 +7,17 @@
     </a>
   </div>
   <div class="nav-right">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a id="signup-button" class="btn btn-primary" href="/">Página inicial<span class="sr-only">(current)</span></a>
-        <a id="login-button" class="btn btn-primary" href="/login">Entrar</a>
+    <div class="dropdown mr-1">
+      <button type="button" id="nav-dropdown" class="btn btn-primary dropdown-toggle" id="dropdownMenuOffset"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        <img class="nav-picture" src="{{user.imgPath}}" alt="">
+        {{user.username}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="/home">Meus serviços</a>
+        <a class="dropdown-item" href="/">Página inicial</a>
+        <a class="dropdown-item" href="/Signup">Cadatro</a>
+        <a class="dropdown-item" href="/logout"><strong>Sair</strong></a>
       </div>
     </div>
   </div>
@@ -22,7 +26,7 @@
 {{!-- </section> --}}
 <section id="signup-container">
   <div id="signup">
-    <form action="/signup" method="POST" enctype="multipart/form-data">
+    <form action="/edit-user/{{_id}}" method="POST" enctype="multipart/form-data">
       {{!-- =============================TIPO DE USUÁRIO=============================================== --}}
       <h4>Informações de acesso</h4>
       <div class="form-group">
@@ -35,11 +39,11 @@
           <label for="inputEmail4">E-mail*</label>
           <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="" value="{{user.email}}">
         </div>
-        <div class="form-group col-md-4">
+        {{!-- <div class="form-group col-md-4">
           <label for="inputPassword4">Senha*</label>
           <input name="password" type="password" class="form-control" id="inputPassword4" maxlength="15" placeholder=""
             value="{{user.password}}">
-        </div>
+        </div> --}}
       </div>
       <span>*Campos obrigatórios</span>
       {{!-- =============================INFORMAÇÕES DE ACESSO=============================================== --}}
@@ -164,7 +168,7 @@
       </div>
       {{!-- =============================SUBMIT BUTTON=============================================== --}}
       <div id="form-button">
-        <button type="submit" class="btn btn-primary">Fazer cadastro</button>
+        <button type="submit" class="btn btn-primary">Salvar alterações</button>
       </div>
     </form>
   </div>
