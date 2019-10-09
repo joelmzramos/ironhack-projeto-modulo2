@@ -32,11 +32,26 @@ const getEditUser = (req, res) => {
 };
 
 const postEditUser = async (req, res) => {
-  console.log(req.user);
+  console.log(req.body);
   const { username, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
+  const completeAddress = {
+    address,
+    number,
+    complement,
+    neighborhood,
+    city,
+    state,
+    postalCode,
+  }
+  console.log(req.file, "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGg");
+  const imgPath = req.file ? req.file.url : '';
   try {
     const id = req.user._id;
-    await Users.findByIdAndUpdate(id, { username, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness });
+    if (imgPath) {
+      await Users.findByIdAndUpdate(id, { username, role: req.user.role, name, phoneNumber, cellPhone, email, cpf, imgPath, completeAddress, cnpj, coreBusiness });
+    } else {
+      await Users.findByIdAndUpdate(id, { username, role: req.user.role, name, phoneNumber, cellPhone, email, cpf, completeAddress, cnpj, coreBusiness });
+    }
     res.redirect('/home');
   } catch (error) {
     console.log(error);
@@ -66,7 +81,24 @@ const postEditPassword = async (req, res) => {
   
   try {
     await Users.findByIdAndUpdate(id, { password: hash });
-    res.render("private/password-message", { modal: true });
+    res.render("private/password-message", { user: req.user, modal: true });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// ================================="CANCEL ACCOUNT" BELLOW==========================================
+
+const getCancelAccount = (req, res) => {
+  res.render('private/cancel-account', { user: req.user});
+};
+
+const postCancelAccount = async (req, res) => {
+  console.log(req.user);
+  try {
+    const id = req.user._id;
+    await Users.findByIdAndUpdate(id, { userCanceled: true });
+    res.redirect('/');
   } catch (error) {
     console.log(error);
   }
@@ -74,11 +106,39 @@ const postEditPassword = async (req, res) => {
 
 // =================================SERVICES CONTROLS BELOW==========================================
 
-const service = async (req, res) => {
+// const service = async (req, res) => {
+//   const { serviceId } = req.params;
+//   const detail = await Services.findById(serviceId);
+//   res.render('private/service', detail);
+// };
+
+// const service = async (req, res) => {
+//   const { serviceId } = req.params;
+//   const detail = await Services.findById(serviceId);
+//   res.render('private/service', { user: req.user, detail });
+// };
+
+const getService = async (req, res) => {
   const { serviceId } = req.params;
-  const detail = await Services.findById(serviceId);
-  res.render('private/service', detail);
+  const service = await Services.findById(serviceId);
+  const user = await Users.findById(req.user._id);
+
+  // const serviceInfo = {
+  //   user,
+  //   detail,
+  // };
+  res.render('private/service', {
+    user,
+    service,
+  });
 };
+
+
+
+
+
+
+
 
 const newService = (req, res) => {
   res.render('private/newservice');
@@ -106,7 +166,9 @@ module.exports = {
   getEditPassword,
   postEditPassword,
   passwordMessage,
-  service,
+  getCancelAccount,
+  postCancelAccount,
+  getService,
   newService,
   // createService,
   getLogout,

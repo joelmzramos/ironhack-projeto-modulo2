@@ -53,28 +53,28 @@ const postSignup = async (req, res) => {
     return;
   }
 
-  Users.findOne({ username })
-    .then(user => {
-      if (user) {
-        res.render("public/signup-message", { message: `O nome de "usuário" escolhido já está em uso. Tente outro.` });
-        return;
-      }
-    })
-    .catch(error => {
-      next(error)
-    }); const ensureLogin = require("connect-ensure-login");
+  try{
+    const user = await Users.findOne({ username })
+    if (user) {
+      console.log('usuário já existe')
+      res.render("public/signup-message", { message: `O nome de "usuário" escolhido já foi cadastrado anteriormente. Tente outro.` });
+      return;
+    }
+  } catch(error) {
+    console.log('error finding user', error)
+    next(error)
+  }
 
-
-  Users.findOne({ email })
-    .then(user => {
-      if (user) {
-        res.render("public/signup-message", { message: `O endereço de e-mail escolhido já está em uso. Tente outro.` });
-        return;
-      }
-    })
-    .catch(error => {
-      next(error)
-    });
+  // Users.findOne({ email })
+  //   .then(user => {
+  //     if (user) {
+  //       res.render("public/signup-message", { message: `O endereço de e-mail escolhido já foi cadastrado anteriormente. Tente outro.` });
+  //       return;
+  //     }
+  //   })
+  //   .catch(error => {
+  //     next(error)
+  //   });
 
   // =================================SIGNUP CONTROLS ABOVE==========================================
 
@@ -84,7 +84,7 @@ const postSignup = async (req, res) => {
   userData.password = hash;
 
   const newUser = new Users(userData);
-  console.log('(auth-controller)', newUser);
+  console.log('(auth-controller) newUser:', newUser);
 
   // ========================NODEMAILER CODE (BELOW)===============================
 
@@ -121,6 +121,7 @@ const postSignup = async (req, res) => {
     await main();
     await newUser.save((err) => {
       if (err) {
+        console.log('error saving user', err)
         res.render("public/signup-message", { message: "Ocorreu um erro no cadastro do usuário. Tente novamente." });
       } else {
         res.render('public/signup-message', { modal: true });
@@ -153,3 +154,64 @@ module.exports = {
   postLogin,
 };
 
+// Users.findOne({ username })
+//     .then(user => {
+//       if (user) {
+//         res.render("public/signup-message", { message: `O nome de "usuário" escolhido já foi cadastrado anteriormente. Tente outro.` });
+//         return;
+//       }
+
+//       const salt = bcrypt.genSaltSync(saltRounds);
+//       const hash = bcrypt.hashSync(userData.password, salt);
+
+//       userData.password = hash;
+
+//       const newUser = new Users(userData);
+//       console.log('(auth-controller)', newUser);
+//       // ========================NODEMAILER CODE (BELOW)===============================
+
+//       const nodemailer = require('nodemailer');
+//       async function main() {
+//         // let testAccount = await nodemailer.createTestAccount();
+//         let transporter = nodemailer.createTransport({
+//           service: 'hotmail',
+//           auth: {
+//             user: emailAdress,
+//             pass: emailPassword
+//           }
+//         });
+
+//         let info = await transporter.sendMail({
+//           from: 'Acompanhe Aqui', // sender address
+//           to: userData.email, // list of receivers
+//           subject: 'Cadastro no aplicativo Acompanhe Aqui', // Subject line
+//           text: 'Bem vindo ao aplicativo Acompanhe Aqui! Não perca tempo e acompanhe já os seus serviços contratados. Acesse a nossa plataforma por meio da url: http://acompanheaqui.herokuapp.com e complete o seu cadastro. Sua senha inicial é 1234 e, para a sua segurança, deve ser alterada no primeiro acesso. Equipe Acompanhe Aqui', // plain text body
+//           html: '<p>Bem vindo ao aplicativo Acompanhe Aqui!</p><br><p>Não perca tempo e acompanhe já os seus serviços contratados. Acesse a nossa plataforma por meio da url: http://acompanheaqui.herokuapp.com e complete o seu cadastro. Sua senha inicial é 1234 e, para a sua segurança, deve ser alterada no primeiro acesso.</p><br><p>Equipe Acompanhe Aqui</p>'// html body
+//         });
+
+//         console.log('(auth-controller) Message sent: %s', info.messageId);
+//         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+//         // Preview only available when sending through an Ethereal account
+//         console.log('(auth-controller) Preview URL: %s', nodemailer.getTestMessageUrl(info));
+//         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+//       }
+
+//       // ===========================NODEMAILER CODE (ABOVE)==============================
+
+//       try {
+//         await main();
+//         await newUser.save((err) => {
+//           if (err) {
+//             res.render("public/signup-message", { message: "Ocorreu um erro no cadastro do usuário. Tente novamente." });
+//           } else {
+//             res.render('public/signup-message', { modal: true });
+//           }
+//         });
+//       } catch (error) {
+//         res.render("public/signup-message", { message: "Ocorreu um erro no envio de e-mail para o usuário cadastrado. Verifique se o endereço inserido de e-mail está correto e tente novamente. Caso o erro persista, entre em contato com a Acompanhe Aqui." });
+//       }
+//     })
+//     .catch(error => {
+//       next(error)
+//     })

@@ -66,8 +66,8 @@ const dataServices = [{
   price: 40,
   description: 'Revisão completa com troca de óleo',
   status: 'Aguardando orçamento',
-  providerID: '5d9ce5798fed8f19b90fc0ca',
-  customerID: '5d9ce62d8fed8f19b90fc0cb',
+  providerID: '5d9e4fac53f20c0e878766c0',
+  customerID: '5d9e4fc253f20c0e878766c1',
 },
 {
   name: 'Alinhamento',
@@ -76,8 +76,8 @@ const dataServices = [{
   price: 40,
   description: 'Alinhamento e Balanceamento',
   status: 'Aguardando orçamento',
-  providerID: '5d9ce5798fed8f19b90fc0ca',
-  customerID: '5d9ce62d8fed8f19b90fc0cb',
+  providerID: '5d9e4fac53f20c0e878766c0',
+  customerID: '5d9e4fc253f20c0e878766c1',
 },
 {
   name: 'Funilaria',
@@ -86,8 +86,8 @@ const dataServices = [{
   price: 40,
   description: 'Alinhamento e Balanceamento',
   status: 'Aguardando orçamento',
-  providerID: '5d9ce5798fed8f19b90fc0ca',
-  customerID: '5d9ce62d8fed8f19b90fc0cb',
+  providerID: '5d9e4fac53f20c0e878766c0',
+  customerID: '5d9e4fc253f20c0e878766c1',
 },
 ]
 

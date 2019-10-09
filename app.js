@@ -54,9 +54,13 @@ passport.deserializeUser((id, cb) => {
 });
 
 app.use(flash());
-passport.use(new LocalStrategy({passReqToCallback: true
+passport.use(new LocalStrategy({
+  passReqToCallback: true
 }, (req, username, password, next) => {
   Users.findOne({ username }, (err, user) => {
+    // if (user.userCanceled === true) {
+    //   return next(null, false, { message: 'Account canceled' });
+    // }
     if (err) {
       return next(err);
     }
@@ -87,5 +91,3 @@ app.use('/', authRoutes);
 app.use('/', privateRoutes);
 
 // hbs.registerPartials(`${__dirname}/views/partials`);
-
-app.listen(3000, () => console.log("My Project2 running on port 3000 🎧 🥁 🎸 🔊"));
