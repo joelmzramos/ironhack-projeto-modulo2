@@ -507,7 +507,6 @@ text-decoration: none;
   border-radius: 20px;
 }
 
-
 /* ===================================CUSTOMER=========================================== */
 
 /* ===================================CUSTOMER 1=========================================== */
@@ -554,8 +553,6 @@ text-decoration: none;
   max-width: 740px;
 }
 
-
-
 #customer-card-deck .card:hover {
   background-color: rgb(223, 217, 217);
 }
@@ -581,7 +578,6 @@ text-decoration: none;
   margin: 20px 0px;
   color: #3a9ecb;
 }
-
 
 /* ===================================ERROR PAGE=========================================== */
 
@@ -616,10 +612,32 @@ text-decoration: none;
 }
 
 
+
+/* ============================PASSWORD PAGE=============================== */
+
+
+#password-container {
+  display: flex;
+  justify-content: center;
+  background-color: #3a9ecb;
+  /* height: calc(100vh - 70px); */
+  height: 100vh;
+}
+  
+#password-form {
+  border-radius: 7px;
+  margin: 100px 20px auto;
+  padding: 40px;
+  justify-content: center;
+  max-width: 800px;
+  background-color: white;
+}
+
+#password-form button {
+  margin-top: 10px;
+}
+
 /* ===================================MEDIA QUERY=========================================== */
-
-
-
 
 @media(max-width: 756px) {
   html {
@@ -629,29 +647,4 @@ text-decoration: none;
     font-size: 28px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-/* ===================================APAGAR ABAIXO=================================== */
-
-.carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-/* ===================================APAGAR ACIMA=================================== */
-
 

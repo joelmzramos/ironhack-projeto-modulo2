@@ -15,8 +15,10 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
         <a class="dropdown-item" href="/edit/user">Editar meu perfil</a>
+        <a class="dropdown-item" href="/about">Alterar minha senha</a>
+        <a class="dropdown-item" href="/aboutr">Excluir minha conta</a>
         <a class="dropdown-item" href="/">Página inicial</a>
-        <a class="dropdown-item" href="/Signup">Cadatro</a>
+        <a class="dropdown-item" href="/Signup">Cadastro</a>
         <a class="dropdown-item" href="/logout"><strong>Sair</strong></a>
       </div>
     </div>
@@ -44,13 +46,12 @@
     <!-- ===================================PROVIDER2=========================================== -->
 
     <div id="customer-card-deck" class="card-deck">
-    {{#each services}}
+      {{#each services}}
       <a href="/service/{{_id}}">
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img src="{{providerID.imgPath}}"
-                class="card-img" alt="...">
+              <img src="{{providerID.imgPath}}" class="card-img" alt="...">
             </div>
             <div class="col-md-8">
               <div class="card-body">
@@ -62,6 +63,6 @@
           </div>
         </div>
       </a>
-    {{/each}}
+      {{/each}}
     </div>
 </section>

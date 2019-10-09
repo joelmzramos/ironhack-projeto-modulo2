@@ -15,8 +15,10 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
         <a class="dropdown-item" href="/edit/user">Editar meu perfil</a>
+        <a class="dropdown-item" href="/edit-password">Alterar minha senha</a>
+        <a class="dropdown-item" href="/about">Excluir minha conta</a>
         <a class="dropdown-item" href="/">Página inicial</a>
-        <a class="dropdown-item" href="/Signup">Cadatro</a>
+        <a class="dropdown-item" href="/Signup">Cadastro</a>
         <a class="dropdown-item" href="/logout"><strong>Sair</strong></a>
       </div>
     </div>
@@ -47,8 +49,7 @@
       <div class="service">
         <a href="/service/{{_id}}">
           <div class="card" style="width: 14rem;">
-            <img src="{{customerID.imgPath}}"
-              class="customer-picture card-img-top" alt="...">
+            <img src="{{customerID.imgPath}}" class="customer-picture card-img-top" alt="...">
             <div class="card-body">
               <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
               <h5 class="card-title">{{customerID.username}}</h5>

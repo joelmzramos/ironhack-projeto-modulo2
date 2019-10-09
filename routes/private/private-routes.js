@@ -1,6 +1,7 @@
 const express = require("express");
 // const Users = require('../models/Users');
 // const Services = require('../models/Services');
+const router = express();
 
 
 const {
@@ -8,13 +9,14 @@ const {
   // customer,
   getEditUser,
   postEditUser,
+  getEditPassword,
+  postEditPassword,
   service,
   newService,
   // createService,
   getLogout,
 } = require('../../controllers/private-controller');
 
-const router = express();
 
 const checkRoles = role => (req, res, next) => {
   if (req.isAuthenticated() && req.user.role === role) {
@@ -26,10 +28,19 @@ const checkRoles = role => (req, res, next) => {
 const checkSp = checkRoles('provider');
 const ensureLogin = require("connect-ensure-login");
 
+
+const passwordMessage = (req, res) => {
+  res.render('private/password-message');
+};
+
 router.get('/home', ensureLogin.ensureLoggedIn(), home);
 // ROTAS DE EDIÇÃO COM PROBLEMAS=========================================================================='''''''''''''1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 router.get('/edit/user', ensureLogin.ensureLoggedIn(), getEditUser);
-router.post('/edit/user/:id', postEditUser);
+router.post('/edit-user', postEditUser);
+router.get('/edit-password', ensureLogin.ensureLoggedIn(), getEditPassword);
+router.post('/edit-password', postEditPassword);
+router.get('/password-message', passwordMessage);
+
 router.get('/service/:serviceId', checkSp, service);
 router.get('/newservice', checkSp, newService);
 // router.post('/createservice', checkSp, createService);

@@ -26,7 +26,7 @@
 {{!-- </section> --}}
 <section id="signup-container">
   <div id="signup">
-    <form action="/edit-user/{{_id}}" method="POST" enctype="multipart/form-data">
+    <form action="/edit-user" method="POST">
       {{!-- =============================TIPO DE USUÁRIO=============================================== --}}
       <h4>Informações de acesso</h4>
       <div class="form-group">
@@ -159,13 +159,13 @@
         </div>
       </div>
       {{!-- =============================PROFILE PICTURE=============================================== --}}
-      <h4>Imagem de perfil</h4>
+      {{!-- <h4>Imagem de perfil</h4>
       <div class="form-group">
         <img src="{{user.imgPath}}" alt="" style="width: 200px;">
         <br>
         <label for="exampleFormControlFile1"></label>
         <input name="profilePicture" type="file" class="form-control-file" id="exampleFormControlFile1">
-      </div>
+      </div> --}}
       {{!-- =============================SUBMIT BUTTON=============================================== --}}
       <div id="form-button">
         <button type="submit" class="btn btn-primary">Salvar alterações</button>

@@ -28,6 +28,7 @@ const userSchema = new Schema({
   // fields for service providers:
   cnpj: { type: Number },
   coreBusiness: { type: String },
+  userCanceled: { type: Boolean, default: false},
 });
 
 const User = mongoose.model('User', userSchema);

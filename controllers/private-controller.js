@@ -1,3 +1,6 @@
+const passport = require('passport');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const Users = require('../models/Users');
 const Services = require('../models/Services');
 
@@ -26,42 +29,48 @@ const home = async (req, res, next) => {
 
 const getEditUser = (req, res) => {
   res.render('private/edit-user', { user: req.user, coreBusiness: req.user.coreBusiness, state: req.user.completeAddress.state });
-  console.log("AOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 };
 
 const postEditUser = async (req, res) => {
-  const { id } = req.params;
+  console.log(req.user);
   const { username, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
   try {
+    const id = req.user._id;
     await Users.findByIdAndUpdate(id, { username, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness });
-    console.log("AEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEee");
-    if (isProvider) {
-      return res.render('private/provider/home', dataHome);
-    } else {
-      return res.render('private/customer/home', dataHome);
-    };
+    res.redirect('/home');
   } catch (error) {
     console.log(error);
   }
 };
 
+// =================================EDIT PASSWORD CONTROLS BELOW==========================================
 
+const passwordMessage = (req, res) => {
+  res.render('public/pssword-message');
+};
 
+const getEditPassword = (req, res) => {
+  res.render('private/edit-password', { user: req.user, coreBusiness: req.user.coreBusiness, state: req.user.completeAddress.state });
+};
 
-
-// router.post('/edit/:id', checkBoss, async (req, res) => {
-//   const { id } = req.params;
-//   const { name, role, username } = req.body;
-//   try {
-//     await User.findByIdAndUpdate(id, { name, role, username });
-//     res.redirect('/show-users');
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-
-
+const postEditPassword = async (req, res) => {
+  const id = req.user._id;
+  const { password } = req.body;
+  console.log(password, 'string grandonaaaaaaaaaaaaaaaaaaaaaaaaaa');
+  if (password === '') {
+    res.render("private/password-message", { message: `O campo "senha" é de preenchimento obrigatório.` });
+    return;
+  }
+  const salt = bcrypt.genSaltSync(saltRounds);
+  const hash = bcrypt.hashSync(password, salt);
+  
+  try {
+    await Users.findByIdAndUpdate(id, { password: hash });
+    res.render("private/password-message", { modal: true });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // =================================SERVICES CONTROLS BELOW==========================================
 
@@ -71,17 +80,12 @@ const service = async (req, res) => {
   res.render('private/service', detail);
 };
 
-
-
 const newService = (req, res) => {
   res.render('private/newservice');
 };
 
 // const createService = (req, res) => {
 // };
-
-
-
 
 // =================================LOGOUT CONTROLS BELOW==========================================
 
@@ -99,6 +103,9 @@ module.exports = {
   home,
   getEditUser,
   postEditUser,
+  getEditPassword,
+  postEditPassword,
+  passwordMessage,
   service,
   newService,
   // createService,
@@ -106,26 +113,6 @@ module.exports = {
 };
 
 
-
-
-// =================================EDIT USER CONTROLS BELOW==========================================
-
-
-// const getEditUser = (req, res) => {
-//   res.render('private/edit-user', {user:req.user, coreBusiness: req.user.coreBusiness, state: req.user.completeAddress.state });
-
-// };
-
-// const postEditUser = async (req, res) => {
-//   const { id } = req.params;
-//   const { username, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness } = req.body;
-//   try {
-//     await Users.findByIdAndUpdate(id, { username, role, name, phoneNumber, cellPhone, email, cpf, address, number, complement, neighborhood, city, state, postalCode, cnpj, coreBusiness });
-//     res.redirect('/home');
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 // =================================EDIT PASSWORD CONTROLS BELOW==========================================
 
