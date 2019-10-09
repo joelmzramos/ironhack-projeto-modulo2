@@ -1,0 +1,155 @@
+{{!-- ===================================NAVBAR=========================================== --}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="nav-left">
+    <a id="logo-name" class="navbar-brand" href="/">
+      <h3>acompanhe aqui</h1>
+    </a>
+  </div>
+  <div class="nav-right">
+    <div class="dropdown mr-1">
+      <button type="button" id="nav-dropdown" class="btn btn-primary dropdown-toggle" id="dropdownMenuOffset"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        <img class="nav-picture" src="{{user.imgPath}}" alt="">
+        {{user.username}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="/edit/user">Editar meu perfil</a>
+        <a class="dropdown-item" href="/edit-password">Alterar minha senha</a>
+        <a class="dropdown-item" href="/cancel-account">Excluir minha conta</a>
+        <a class="dropdown-item" href="/">Página inicial</a>
+        <a class="dropdown-item" href="/Signup">Cadastro</a>
+        <a class="dropdown-item" href="/logout"><strong>Sair</strong></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================================HOME CONTAINER=========================================== -->
+
+<section id="home-container">
+
+  <div id="home-services">
+    <h3>Meus serviços:</h3>
+    {{!-- <h3>Meus serviços: {{provider.username}}</h3> --}}
+    <div id="search-nav" class="card">
+      <div class="card-body">
+        <a class="search-button btn btn-primary" href="/signup">Sem orçamento</a>
+        <a class="search-button btn btn-primary" href="/signup">Orçamento aprovado</a>
+        <a class="search-button btn btn-primary" href="/signup">Em andamento</a>
+        <a class="search-button btn btn-primary" href="/signup">Atrasados</a>
+        <a class="search-button btn btn-primary" href="/signup">Concluídos</a>
+        <a class="search-button btn btn-primary" href="/signup">Todos</a>
+        <a class="new-service-button search-button btn btn-primary" href="/signup">Novo serviço</a>
+      </div>
+    </div>
+
+    <div id="services" class="card-deck">
+      {{#each services}}
+      <div class="service">
+        <a href="/service/{{_id}}">
+          <div class="card" style="width: 14rem;">
+            <img src="{{customerID.imgPath}}" class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">{{customerID.username}}</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p class="card-text">{{name}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+<!-- ===================================HOME 2=========================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div>
+  <div class="card border-info mb-3" style="max-width: 18rem;">
+    <a href="/newservice"><div class="card-header">Cadastrar Novo Serviço</div></a>
+    <div class="card-body text-info">
+      <h5 class="card-title"></h5>
+      <p class="card-text"></p>
+    </div>
+  </div>
+<div>
+  <div class="card border-info mb-3" style="max-width: 18rem;">
+    <a href="/detail/1"><div class="card-header">Juliano de Almeida</div></a>
+    <div class="card-body text-info">
+      <h5 class="card-title">Revisão Completa</h5>
+      <p class="card-text">O cliente pediu urgência no serviço.</p>
+    </div>
+  </div> --}}

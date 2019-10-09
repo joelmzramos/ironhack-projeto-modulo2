@@ -1,0 +1,67 @@
+{{!-- ===================================NAVBAR=========================================== --}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="nav-left">
+    <a id="logo-name" class="navbar-brand" href="/">
+      <h3>acompanhe aqui</h1>
+    </a>
+  </div>
+  <div class="nav-right">
+    <div class="dropdown mr-1">
+      <button type="button" id="nav-dropdown" class="btn btn-primary dropdown-toggle" id="dropdownMenuOffset"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        <img class="nav-picture" src="{{user.imgPath}}" alt="">
+        {{user.username}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="/home">Meus serviços</a>
+        <a class="dropdown-item" href="/edit/user">Editar meu perfil</a>
+        <a class="dropdown-item" href="/edit-password">Alterar minha senha</a>
+        <a class="dropdown-item" href="/cancel-account">Excluir minha conta</a>
+        <a class="dropdown-item" href="/">Página inicial</a>
+        <a class="dropdown-item" href="/Signup">Cadastro</a>
+        <a class="dropdown-item" href="/logout"><strong>Sair</strong></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ===================================HOME CONTAINER=========================================== -->
+
+<section id="home-container">
+
+  <div id="home-services">
+    <h3>Meus serviços:</h3>
+    {{!-- <h3>Meus serviços: {{provider.username}}</h3> --}}
+
+    <div id="services" class="card-deck">
+      <div class="service">
+        <a href="/service/{{_id}}">
+          <div class="card" style="width: 14rem;">
+            <img src="{{service.customerID.imgPath}}" class="customer-picture card-img-top" alt="...">
+            <div class="card-body">
+              <!-- puxar apenas primeiro e último nome ou apenas o username(15 letras no máximo) -->
+              <h5 class="card-title">{{service.customerID.username}}</h5>
+              <h6><strong>Serviço:</strong></h6>
+              <p>{{service.providerID.name}}</p>
+              <p>{{service.providerID.imgPath}}</p>
+              <p>{{service.customerID.imgPath}}</p>
+              <p>{{service.customerID.name}}</p>
+              <p>{{service.name}}</p>
+              <p>{{service.description}}</p>
+              <p>{{service.startDate}}</p>
+              <p>{{service.deadLine}}</p>
+              <p>{{service.price}}</p>
+              <p>{{service.description}}</p>
+              <p>{{service.status}}</p>
+              <p>{{service.description}}</p>
+              <p>{{service.status}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================================HOME 2=========================================== -->

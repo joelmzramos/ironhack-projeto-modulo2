@@ -1,0 +1,68 @@
+{{!-- ===================================NAVBAR=========================================== --}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="nav-left">
+    <a id="logo-name" class="navbar-brand" href="/">
+      <h3>acompanhe aqui</h1>
+    </a>
+  </div>
+  <div class="nav-right">
+    <div class="dropdown mr-1">
+      <button type="button" id="nav-dropdown" class="btn btn-primary dropdown-toggle" id="dropdownMenuOffset"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        <img class="nav-picture" src="{{user.imgPath}}" alt="">
+        {{user.username}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="/edit/user">Editar meu perfil</a>
+        <a class="dropdown-item" href="/edit-password">Alterar minha senha</a>
+        <a class="dropdown-item" href="/cancel-account">Excluir minha conta</a>
+        <a class="dropdown-item" href="/">Página inicial</a>
+        <a class="dropdown-item" href="/Signup">Cadastro</a>
+        <a class="dropdown-item" href="/logout"><strong>Sair</strong></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================================CUSTOMER CONTAINER=========================================== -->
+
+<section id="customer-container">
+
+  <div id="customer-services">
+    <h3>Meus serviços:</h3>
+    {{!-- <h3>Meus serviços: {{provider.username}}</h3> --}}
+    <div id="search-nav" class="card">
+      <div class="card-body">
+        <a class="search-button btn btn-primary" href="/signup">Sem orçamento</a>
+        <a class="search-button btn btn-primary" href="/signup">Orçamento aprovado</a>
+        <a class="search-button btn btn-primary" href="/signup">Em andamento</a>
+        <a class="search-button btn btn-primary" href="/signup">Atrasados</a>
+        <a class="search-button btn btn-primary" href="/signup">Concluídos</a>
+        <a class="search-button btn btn-primary" href="/signup">Todos</a>
+      </div>
+    </div>
+
+    <!-- ===================================PROVIDER2=========================================== -->
+
+    <div id="customer-card-deck" class="card-deck">
+      {{#each services}}
+      <a href="/service/{{_id}}">
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{{providerID.imgPath}}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{providerID.username}}</h5>
+                <h6><strong>Serviço:</strong></h6>
+                <p class="card-text">{{name}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+</section>

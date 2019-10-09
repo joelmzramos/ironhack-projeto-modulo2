@@ -1,0 +1,171 @@
+{{!-- ===================================NAVBAR=========================================== --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="nav-left">
+    <a id="logo-name" class="navbar-brand" href="/">
+      <h3>acompanhe aqui</h1>
+    </a>
+  </div>
+  <div class="nav-right">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a id="signup-button" class="btn btn-primary" href="/">Página inicial<span class="sr-only">(current)</span></a>
+        <a id="login-button" class="btn btn-primary" href="/login">Entrar</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{{!-- </section> --}}
+<section id="signup-container">
+    <div id="signup">
+    <form action="/signup" method="POST" enctype="multipart/form-data">
+      {{!-- =============================TIPO DE USUÁRIO=============================================== --}}
+      <h4>Tipo de usuário</h4>
+      <div id="check-button">
+        <div class="form-check form-check-inline">
+          <input checked="checked" class="form-check-input" type="radio" name="role" id="inlineRadio1"
+            value="provider">
+          <label class="form-check-label" for="inlineRadio1"> Prestador de serviços</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="customer">
+          <label class="form-check-label" for="inlineRadio2"> Cliente</label>
+        </div>
+      </div>
+      <h4>Informações de acesso</h4>
+      <div class="form-group">
+        <label for="inputAddress">Usuário*</label>
+        <input name="username" type="text" class="form-control" id="Nome" maxlength = "15" placeholder="">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="inputEmail4">E-mail*</label>
+          <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputPassword4">Senha*</label>
+          <input name="password" type="password" class="form-control" id="inputPassword4" maxlength = "15" placeholder="">
+        </div>
+      </div>
+        <span>*Campos obrigatórios</span>
+      {{!-- =============================INFORMAÇÕES DE ACESSO=============================================== --}}
+      <h4>Dados cadastrais</h4>
+      <div class="form-group">
+        <label for="inputAddress">Nome</label>
+        <input name="name" type="text" class="form-control" id="Nome" placeholder="">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">CPF</label>
+          <input name="cpf" type="number" class="form-control" id="cpf" maxlength = "11" placeholder="___.___.___-__">
+        </div>
+      </div>
+      <div class="form-row" id="data-sp">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">CNPJ</label>
+          <input name="cnpj" type="number" class="form-control" id="cpf" maxlength = "14" placeholder="__.___.___/____-__">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Ramo de atuação</label>
+
+          <select name="coreBusiness" id="inputState" class="form-control">
+             <option></option>
+            <option>Assistência técnica</option>
+            <option>Autos</option>
+            <option>Design e tecnologia</option>
+            <option>Gráfica e papelaria</option>
+            <option>Moda e beleza</option>
+            <option>Reformas</option>
+            <option>Serviços domésticos</option>
+            <option>Outros</option>
+          </select>
+        </div>
+      </div>
+      {{!-- =============================CONTATO=============================================== --}}
+      <h4>Contato</h4>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">DDD + Número do celular</label>
+          <input name="cellPhone" type="number" class="form-control" id="celular" placeholder="">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">DDD + Número do telefone</label>
+          <input name="phoneNumber" type="number" class="form-control" id="telefone" placeholder="">
+        </div>
+      </div>
+      {{!-- =============================ENDEREÇO=============================================== --}}
+      <h4>Endereço</h4>
+      <div class="form-group">
+        <label for="inputAddress2">Endereço</label>
+        <input name="address" type="text" class="form-control" id="inputAddress2" placeholder="">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputEmail4">Número</label>
+          <input name="number" type="number" class="form-control" id="endereço" placeholder="">
+        </div>
+        <div class="form-group col-md-8">
+          <label for="inputPassword4">Complemento</label>
+          <input name="complement" type="text" class="form-control" id="cnpj" placeholder="">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <label for="inputCity">Cidade</label>
+          <input name="city" type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Estado</label>
+          <select name="state" id="inputState" class="form-control">
+            <option></option>
+            <option>Acre (AC) </option>
+            <option>Alagoas (AL)</option>
+            <option>Amapá (AP)</option>
+            <option>Amazonas (AM)</option>
+            <option>Bahia (BA)</option>
+            <option>Ceará (CE)</option>
+            <option>Distrito Federal (DF)</option>
+            <option>Espírito Santo (ES)</option>
+            <option>Goiás (GO)</option>
+            <option>Maranhão (MA)</option>
+            <option>Mato Grosso (MT)</option>
+            <option>Mato Grosso do Sul (MS)</option>
+            <option>Minas Gerais (MG)</option>
+            <option>Pará (PA)</option>
+            <option>Paraíba (PB)</option>
+            <option>Paraná (PR)</option>
+            <option>Pernambuco (PE)</option>
+            <option>Piauí (PI)</option>
+            <option>Rio de Janeiro (RJ)</option>
+            <option>Rio Grande do Norte (RN)</option>
+            <option>Rio Grande do Sul (RS)</option>
+            <option>Rondônia (RO)</option>
+            <option>Roraima (RR)</option>
+            <option>Santa Catarina (SC)</option>
+            <option>São Paulo (SP)</option>
+            <option>Sergipe (SE)</option>
+            <option>Tocantins (TO)</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputZip">Cep</label>
+          <input name="postalCode" type="text" class="form-control" id="inputZip" placeholder="_____-___" maxlength="9">
+        </div>
+      </div>
+      {{!-- =============================PROFILE PICTURE=============================================== --}}
+      <h4>Imagem de perfil</h4>
+      <div class="form-group">
+        <label for="exampleFormControlFile1"></label>
+        <input name="profilePicture" type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      {{!-- =============================SUBMIT BUTTON=============================================== --}}
+      <div id="form-button">
+        <button type="submit" class="btn btn-primary">Fazer cadastro</button>
+      </div>
+    </form>
+  </div>
+</section>
